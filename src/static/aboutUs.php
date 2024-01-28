@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spring Hills Ranch</title>
-    <link rel="icon" href="../images/Logo-Black.svg" />
+    <link rel="icon" href="../../images/Logo-Black.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,7 +16,7 @@
     <script src="https://kit.fontawesome.com/8f5cf0b518.js" crossorigin="anonymous" defer></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="../style.css" />
 
     <!--BULL CARDS SCRIPT  -->
     <script src="carousel.js" defer></script>
@@ -28,7 +28,7 @@
     
       <div class="nav-container">
         <div class="img-box">
-          <img src="../images/Logo-black.svg" alt="Logo"/>
+          <img src="../../images/Logo-Black.svg" alt="Logo"/>
         </div>
 
         <button class="hamburger">
@@ -36,12 +36,12 @@
         </button>
 
         <div class="info-container">
-          <img src="../images/placeholder.svg" width="70px" alt="placeholder"/>
+          <img src="../../images/placeholder.svg" width="70px" alt="placeholder"/>
           <div class="info" style="padding-right: 30px;">
             <p style="float: none">P.O BOX 488<br>
               MT. Vernon, MO 65712</p>
           </div>
-          <img src="../images/call.svg" width="70px" alt="placeholder"/>
+          <img src="../../images/call.svg" width="70px" alt="placeholder"/>
           <div class="info">
             <p style="float: none">417-737-BEEF (2333)</p>
           </div>
@@ -95,7 +95,7 @@
 echo "
     <!-- image -->
     <div class='header-container'>
-      <img src='./images/About-Us-header.svg' alt='farmer-bull'>
+      <img src='../../images/About-Us-header.svg' alt='farmer-bull'>
     </div>
     
     </header>
@@ -109,25 +109,16 @@ echo "
           </p>
         </div>
         <div class='image'>
-          <img src='../images/Bull-nbg.svg' alt='bull'>
+          <img src='../../images/bull-nbg.svg' alt='bull'>
         </div>
       </div>
     </section>
-    <!-- MESSAGE -->
-    <section>
-      <div class='img-container'>
-        <img src='../images/bullgrass.jpg' alt='bull'>
-        <div class='message'>
-          <h2>Grown on<br>
-            Fescue Grass</h2>
-        </div>
-      </div>
-    </section>
+
     <!-- RON AND DONNA -->
     <section class='farmer-bkg'>
       <div class='farmer-container'>
         <div class='image'>
-          <img src='../images/donna&ron.jpeg' alt='farmer-picture'>
+          <img src='../../images/donna&ron.jpeg' alt='farmer-picture'>
         </div>
         <div class='text-wrapper'>
           <h2>Ron & Donna <br>McNaughton</h2>
@@ -141,10 +132,10 @@ echo "
     <section>
       <footer>
         <div class='foot-container'>
-          <img class='bkg-farm' src='../images/farm-footer.svg' alt='cows'>
+          <img class='bkg-farm' src='../../images/farm-footer.svg' alt='cows'>
           <div class='foot-wrapper'>
             <div class='logo-wrapper'>
-              <img src='../images/Logo-White.svg' alt='Logo'>
+              <img src='../../images/Logo-White.svg' alt='Logo'>
               &copy;Copyright <em>Esteban Munoz</em>
             </div>
             <div class='text-wrapper'>
