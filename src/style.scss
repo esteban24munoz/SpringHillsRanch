@@ -28,7 +28,7 @@ body {
 
 .nav-container {
   display: flex;
-  margin: 0px 80px;
+  padding: 0px 44px;
   background-color: var(--clr-light);
   justify-content: space-between;
   align-items: center;
@@ -210,6 +210,10 @@ body {
 /* SIDEBAR */
 
 @media (max-width: 930px){
+  .nav-container{
+    padding: 0px 20px;
+  }
+
   body.is-active {
     overflow: hidden;
     }
