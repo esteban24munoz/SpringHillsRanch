@@ -64,9 +64,10 @@ body {
 .welcome h1 {
   text-align: center;
   font-family: var(--ff-header);
-  font-size: 3.2rem;
+  font-size: clamp(2.5rem, 5vw, 3.2rem);
   color: var(--clr-light);
   text-shadow: rgb(0, 0, 0) 1px 0 5px;
+  
 }
 
 
@@ -164,8 +165,11 @@ body {
   opacity: 0;
 }
 
-.nav_list {
+.nav-links .nav_list .nav_item a{
+  font-size: clamp(15px, 3vw, 20px);
+}
 
+.nav_list {
   padding-top: 50px;
 }
 
@@ -211,7 +215,7 @@ body {
 
 @media (max-width: 930px){
   .nav-container{
-    padding: 0px 20px;
+    padding: 0px 22px;
   }
 
   body.is-active {
@@ -256,12 +260,23 @@ body {
   padding-top: 70px;
 }
 
-.bull-container h2,
-.bull-container p {
+.bull-container {
+
+  h2, p{ 
   padding: 10px;
   color: var(--clr-light);
-  font-family: var(--ff-header);
-  font-weight: var(--fw-bold);
+  }
+
+  h2{
+    font-family: var(--ff-header);
+    font-weight: var(--fw-bold);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }  
+  
+  p{
+    font-size: clamp(1rem, 5vw, 1.2rem);
+  }
+
 }
 
 
@@ -367,7 +382,7 @@ body {
 }
 
 .wrapper i:hover{
-  transform: scale(1.1);
+  // transform: scale(1.1);
   
 }
 
