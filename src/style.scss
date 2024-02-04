@@ -274,7 +274,7 @@ body {
   }  
   
   p{
-    font-size: clamp(1rem, 5vw, 1.2rem);
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
   }
 
 }
@@ -289,7 +289,6 @@ body {
 }
 
 .wrapper {
-  max-width: 1350px;
   width: 100%;
   position: relative;
   top: 50%;
@@ -299,7 +298,7 @@ body {
 .wrapper .carousel{
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% / 3) - 12px);
+  grid-auto-columns: calc((100% / 3) - 16px);
   gap: 16px;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -390,7 +389,7 @@ body {
 
 @media (max-width: 900px){
   .wrapper .carousel{
-    grid-auto-columns: calc((100% / 2) - 9px);
+    grid-auto-columns: calc((100% / 2) - 12px);
   }
 }
 
@@ -409,7 +408,7 @@ body {
 .about-cattle{
   display: flex;
   justify-content: space-around;
-  margin: 0px 80px;
+  padding: 0px 80px;
   padding-bottom: 60px;
   // max-height: 100vh;
 }
@@ -424,12 +423,13 @@ body {
 .about-cattle{
   h2{
     font-family: var(--ff-header);
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
   }
   p{
     padding-top: 50px;
     text-align: justify;
-    line-height: 1.5;
+    line-height: 1.8;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
 
   }
   .image{
@@ -522,7 +522,7 @@ body {
 
   p{
     text-align: justify;
-    line-height: 1.5;
+    line-height: 1.8;
   }
 
 }
@@ -549,7 +549,7 @@ body {
   
 
   .form-wrapper{
-    padding: 0px 80px;
+    // padding: 0px 80px;
 
     h3{
       font-family: var(--ff-header);

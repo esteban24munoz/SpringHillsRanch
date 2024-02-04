@@ -255,7 +255,7 @@ body {
 }
 
 .bull-container p {
-  font-size: clamp(1rem, 5vw, 1.2rem);
+  font-size: clamp(0.9rem, 3vw, 1.2rem);
 }
 
 .carousel-container {
@@ -266,7 +266,6 @@ body {
 }
 
 .wrapper {
-  max-width: 1350px;
   width: 100%;
   position: relative;
   top: 50%;
@@ -276,7 +275,7 @@ body {
 .wrapper .carousel {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% / 3) - 12px);
+  grid-auto-columns: calc((100% / 3) - 16px);
   gap: 16px;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -355,7 +354,7 @@ body {
 
 @media (max-width: 900px) {
   .wrapper .carousel {
-    grid-auto-columns: calc((100% / 2) - 9px);
+    grid-auto-columns: calc((100% / 2) - 12px);
   }
 }
 
@@ -371,7 +370,7 @@ body {
 .about-cattle {
   display: flex;
   justify-content: space-around;
-  margin: 0px 80px;
+  padding: 0px 80px;
   padding-bottom: 60px;
 }
 
@@ -383,13 +382,14 @@ body {
 
 .about-cattle h2 {
   font-family: var(--ff-header);
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
 }
 
 .about-cattle p {
   padding-top: 50px;
   text-align: justify;
-  line-height: 1.5;
+  line-height: 1.8;
+  font-size: clamp(0.9rem, 3vw, 1.2rem);
 }
 
 .about-cattle .image {
@@ -470,7 +470,7 @@ body {
 
 .farmer-container p {
   text-align: justify;
-  line-height: 1.5;
+  line-height: 1.8;
 }
 
 @media (max-width: 1100px) {
@@ -488,10 +488,6 @@ body {
   gap: 20px;
   justify-content: space-evenly;
   align-items: center;
-}
-
-.contact-container .form-wrapper {
-  padding: 0px 80px;
 }
 
 .contact-container .form-wrapper h3 {

@@ -1,0 +1,152 @@
+
+:root {
+    --clr-primary: #3e1309;
+    --clr-secondary: #578b5a;
+    --clr-third: #d1b480;
+    --clr-dark: #000;
+    --clr-light: #fff;
+    --clr-background1: #6b361d, #975f2dcf;
+    --clr-background2: #4c4634;
+    --ff-header: "Roboto Serif", serif;
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-bold: 500;
+    --fw-extrabold: 600;
+}
+
+.header-container > *:not(.farm-img){
+    position: absolute; 
+}
+
+.header-container{
+    height: 70dvh;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.farm-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.welcome{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(300px, 100%, 1000px);
+}
+
+.welcome h1 {
+    text-align: left;
+    padding: 22px;
+    font-family: var(--ff-header);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--clr-light);
+    text-shadow: rgb(0, 0, 0) 1px 0 5px;
+}
+
+/* <!-- RANCHERS GUIDE --> */
+
+.rancher-guide{
+    display: flex;
+    justify-content: center;
+}
+
+.rancher-guide p{
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+}
+
+/* <!-- PRODUCT GALLERY --> */
+
+.product-ctn-1{
+    padding: 50px 80px;
+}
+
+.bull-product-1{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.bull-product-1 img{
+    width: 100%;
+}
+
+.small-img-ctn{
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+    padding-bottom: 5px;
+}
+
+/* <!-- INFO CONTAINER --> */
+
+.info-ctn{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.info-ctn h2{
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-family: var(--ff-header);
+    padding-bottom: 25px;
+}
+
+.info-ctn h3{
+    font-size: clamp(1rem, 3vw, 2rem);
+    font-weight: var(--fw-regular);
+    padding-bottom: 25px;
+}
+
+.info-ctn h4{
+    font-size: clamp(0.5rem, 3vw, 1.5rem);
+    font-weight: var(--fw-regular);
+    padding-bottom: 50px;
+}
+
+/* FOR SALE BTN */
+
+.forSale-btn{
+    background-color: #932523;
+    padding: 25px 40px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.forSale-btn h5{
+    font-size: clamp(1rem, 3vw, 2rem);
+    font-weight: var(--fw-bold);
+    color: var(--clr-light);
+    padding-bottom: 5px;
+}
+
+.forSale-btn p{
+    font-size: clamp(0.5rem, 3vw, 1rem);
+    font-weight: var(--fw-bold);
+    color: var(--clr-light);
+}
+
+/* LEARN MORE BTN */
+.learnMore-btn{
+    background-color: var(--clr-primary);
+    padding: 25px 80px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.learnMore-btn a{
+    font-size: clamp(0.5rem, 3vw, 1rem);
+    font-weight: var(--fw-bold);
+    color: var(--clr-light);
+    text-decoration: none;
+}
