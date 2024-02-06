@@ -26,7 +26,6 @@
     
     <!-- CATTLE SCRIPT -->
     <script src="cattle.js" defer></script>
-
 </head>
 <body>
 <header>
@@ -107,7 +106,7 @@
     <!-- RANCHERS GUIDE -->
     <div class="rancher-guide">
       <p>Want to know more about EPD’S?
-          <a class="guide-link" href="#">Ranchers Guide to EPD’S</a>
+          <a class="guide-link" href="RAAA_Guide-to-EPDs.pdf" target="_blank">Ranchers Guide to EPD’S</a>
       </p>
   </div>
 
@@ -116,10 +115,13 @@
     <div class="bull-product-1">
         <!-- eCommerce gallery -->
         <div class="product-gallery">
-          <img src='../../images/bull-p-1.svg' class="bull-product" alt='bull-product'>
+          <img src='../../images/bull-p-0.svg' class="bull-product" id="mainImg" alt='bull-product'>
 
           <!-- Small img container -->
           <div class="small-img-ctn">
+            <div class="small-img-col">
+              <img src='../../images/bull-p-0.svg' class="small-img" alt='bull-product'>
+            </div>
             <div class="small-img-col">
               <img src='../../images/bull-s-img-1.svg' class="small-img" alt='bull-product'>
             </div>
@@ -152,7 +154,27 @@
 
     </div>
 
-  
+        <!-- GALLERY SCRIPT -->
+        <script>
+          let mainImg = document.getElementById('mainImg');
+          let smallImg = document.getElementsByClassName('small-img');
+    
+          smallImg[0].onclick = function(){
+            mainImg.src = smallImg[0].src;
+          };
+    
+          smallImg[1].addEventListener('click', function(){
+            mainImg.src = smallImg[1].src;
+          });
+    
+          smallImg[2].addEventListener('click', function(){
+            mainImg.src = smallImg[2].src;
+          });
+    
+          smallImg[3].addEventListener('click', function(){
+            mainImg.src = smallImg[3].src;
+          });
+        </script>
 </section>
 
 

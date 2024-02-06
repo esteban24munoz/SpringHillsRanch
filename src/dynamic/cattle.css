@@ -58,6 +58,10 @@
 }
 
 /* <!-- PRODUCT GALLERY --> */
+.product-gallery{
+    max-width: 700px;
+}
+
 
 .product-ctn-1{
     padding: 50px 80px;
@@ -78,7 +82,7 @@
 }
 
 .small-img-col{
-    flex-basis: 24%;
+    flex-basis: 24.5%;
     cursor: pointer;
     padding-bottom: 5px;
 }
@@ -150,3 +154,4 @@
     color: var(--clr-light);
     text-decoration: none;
 }
+
