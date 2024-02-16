@@ -133,7 +133,7 @@
             </div>
           </div>
               <!-- SHOW UP-SMALL SCREEN -->
-          <div class="smallBtn">
+          <div class="learn-smallBtn">
             <a href="#">LEARN MORE</a>
           </div>
         </div>
@@ -145,7 +145,7 @@
           <h4 class="dob">DOB: 09-18-2022</h4>
 
           <!-- FOR SALE -->
-          <div class="forSale-btn">
+          <div class="forSale-btn forSale-phone">
             <h5>FOR SALE</h5>
             <p>$ Call for Pricing</p>
           </div>
@@ -166,7 +166,7 @@
                 <h4 class="dob">DOB: 09-18-2022</h4>
               </div>
               <!-- FOR SALE -->
-              <div class="forSale-btn small-btn" style="flex-basis:50%;">
+              <div class="forSale-btn forSale-s-btn">
                 <h5>FOR SALE</h5>
                 <p>$ Call for Pricing</p>
               </div>
@@ -178,23 +178,54 @@
         <!-- GALLERY SCRIPT -->
         <script>
           let mainImg = document.getElementById('mainImg');
-          let smallImg = document.getElementsByClassName('small-img');
-    
-          smallImg[0].onclick = function(){
-            mainImg.src = smallImg[0].src;
-          };
-    
-          smallImg[1].addEventListener('click', function(){
-            mainImg.src = smallImg[1].src;
-          });
-    
-          smallImg[2].addEventListener('click', function(){
-            mainImg.src = smallImg[2].src;
-          });
-    
-          smallImg[3].addEventListener('click', function(){
-            mainImg.src = smallImg[3].src;
-          });
+          let smallImg = document.querySelectorAll('.small-img');
+
+          // function displayImg(smallImg, mainImg){
+
+          //   for(let i = 0; i < smallImg.length; i++){
+          //     smallImg[i].addEventListener('click', function(){
+
+          //       for(let j = 0; j < smallImg.length; j++){
+          //         smallImg[j].style.opacity = 1;
+          //       }
+
+          //       //set opacity to 0.8 for clicked element
+          //       this.style.opacity = 0.8;
+          //       //update mainImg src
+          //       mainImg.src = this.src;
+          //     });
+          //   }
+
+            
+            // smallImg.forEach(element => {
+            //   smallImg[element].addEventListener('click', function(){
+            //     mainImg.src = smallImg[element].src;
+            //     smallImg[element].style.opacity = 0.8;
+            //   });
+
+            // });
+          // }
+            
+            smallImg[0].addEventListener('click', function(){
+              mainImg.src = smallImg[0].src;
+            });
+      
+            smallImg[1].addEventListener('click', function(){
+              mainImg.src = smallImg[1].src;
+              // smallImg[1].style.opacity = 0.8;
+              // smallImg[1].addEventListener('blur', function(){
+              //   smallImg[1].style.opacity = 1;
+              // });
+            });
+      
+            smallImg[2].addEventListener('click', function(){
+              mainImg.src = smallImg[2].src;
+            });
+      
+            smallImg[3].addEventListener('click', function(){
+              mainImg.src = smallImg[3].src;
+            });
+
         </script>
 </section>
 

@@ -58,18 +58,21 @@
 }
 
 .rancher-guide p{
-    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
 }
 
 /* <!-- PRODUCT GALLERY --> */
 .product-gallery{
+    min-width: 550px;
     max-width: 700px;
+    flex-basis: 50%;
 }
 
 
 .product-ctn-1{
     padding: 50px 80px;
 }
+
 
 .bull-product-1{
     display: flex;
@@ -96,10 +99,10 @@
 .info-ctn{
     display: flex;
     flex-direction: column;
-    flex-basis: 50%;
     justify-content: center;
     align-items: center;
     padding: 50px;
+    flex-basis: 50%;
 }
 
 .bullName{
@@ -115,9 +118,9 @@
 }
 
 .dob{
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-size: clamp(0.8rem, 2.5vw, 1.25rem);
     font-weight: var(--fw-regular);
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 /* FOR SALE BTN */
@@ -128,17 +131,29 @@
     text-align: center;
     border-radius: 5px;
     margin-bottom: 50px;
+    text-align: center;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    position: relative;
 }
+/* 
+.forSale-btn.forSale-phone::after{
+    content: "417-737-BEEF (2333)";
+    position: absolute;
+} */
+
 
 .forSale-btn h5{
-    font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+    font-size: clamp(1rem, 2.5vw, 1.8rem);
     font-weight: var(--fw-bold);
     color: var(--clr-light);
     padding-bottom: 5px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
 }
 
 .forSale-btn p{
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-size: clamp(0.8rem, 2vw, 1.25rem);
     font-weight: var(--fw-bold);
     color: var(--clr-light);
 }
@@ -150,10 +165,12 @@
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
+    min-width: 300px;
+    
 }
 
 .learnMore-btn a{
-    font-size: clamp(1.25rem, 2.5vw, 1.25rem);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     font-weight: var(--fw-bold);
     color: var(--clr-light);
     text-decoration: none;
@@ -163,12 +180,22 @@
 .info-small-screen{
     display: none;
 }
-.smallBtn{
+.learn-smallBtn{
     display: none;
 }
 
+ /* <!-- TABLET SCREEN LAYOUT --> */
+@media (max-width: 1000px){
+    .product-ctn-1{
+        padding: 50px 10px;
+    }
+    .info-ctn{
+        padding: 10px;
+    }
+}
+
  /* <!-- SMALL SCREEN LAYOUT --> */
- @media only screen and (max-width: 868px) {
+ @media only screen and (max-width: 820px) {
 
     .product-ctn-1{
         padding: 50px 40px;
@@ -177,6 +204,11 @@
         display: flex;
         flex-direction: column-reverse;
     }
+
+    .product-gallery{
+        min-width: 456px;
+    }
+
     .info-ctn{
         display: none;
     }
@@ -194,31 +226,28 @@
 
     .text-wrap{
         text-align: left;
+        flex-basis: 40%;
     }
 
     .raaa{
         padding-bottom: 10px;
     }
+
+    /* FOR SALE-BTN */
         
-    .small-btn{
-        padding: 12px 30px;
-        margin-bottom: 50px;
+    .forSale-s-btn{
+        padding: 12px 20px;
     }
 
-    .forSale-btn h5{
+    .forSale-s-btn h5, p{
         font-weight: var(--fw-bold);
         color: var(--clr-light);
         padding-bottom: 3px;
     }
 
-    .forSale-btn p{
-        font-weight: var(--fw-bold);
-        color: var(--clr-light);
-    }
 
-
-    /* SmallBTN  */
-    .smallBtn{
+    /* LEARN-BTN  */
+    .learn-smallBtn{
         display: block;
         background-color: var(--clr-primary);
         padding: 25px 80px;
@@ -227,7 +256,7 @@
         cursor: pointer;
     }
 
-    .smallBtn a{
+    .learn-smallBtn a{
         font-weight: var(--fw-bold);
         color: var(--clr-light);
         text-decoration: none;
