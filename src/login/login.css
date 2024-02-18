@@ -7,9 +7,8 @@
 body {
 width: 100%;
 font-family: "Roboto", sans-serif;
-user-select: none;
-
 }
+
 
 :root {
 --clr-primary: #3e1309;

@@ -145,9 +145,9 @@
           <h4 class="dob">DOB: 09-18-2022</h4>
 
           <!-- FOR SALE -->
-          <div class="forSale-btn forSale-phone">
-            <h5>FOR SALE</h5>
-            <p>$ Call for Pricing</p>
+          <div class="forSale-btn">
+            <h5 class="phone-number">FOR SALE</h5>
+            <p class="phone-icon">$ Call for Pricing</p>
           </div>
 
           <!-- LEARN MORE -->
@@ -173,8 +173,6 @@
           </div>
         </div>
     </div>
-
-
         <!-- GALLERY SCRIPT -->
         <script>
           let mainImg = document.getElementById('mainImg');
@@ -205,26 +203,26 @@
 
             // });
           // }
-            
-            smallImg[0].addEventListener('click', function(){
-              mainImg.src = smallImg[0].src;
-            });
+          smallImg[0].addEventListener('click', function(){
+                mainImg.src = smallImg[0].src;
+          });
+
+          // smallImg[0].addEventListener('blur', function(){
+          //     smallImg[0].style.opacity = 1;
+          // });
       
-            smallImg[1].addEventListener('click', function(){
-              mainImg.src = smallImg[1].src;
-              // smallImg[1].style.opacity = 0.8;
-              // smallImg[1].addEventListener('blur', function(){
-              //   smallImg[1].style.opacity = 1;
-              // });
-            });
-      
-            smallImg[2].addEventListener('click', function(){
-              mainImg.src = smallImg[2].src;
-            });
-      
-            smallImg[3].addEventListener('click', function(){
-              mainImg.src = smallImg[3].src;
-            });
+          smallImg[1].addEventListener('click', function(){
+            mainImg.src = smallImg[1].src;
+
+          });
+    
+          smallImg[2].addEventListener('click', function(){
+            mainImg.src = smallImg[2].src;
+          });
+    
+          smallImg[3].addEventListener('click', function(){
+            mainImg.src = smallImg[3].src;
+          });
 
         </script>
 </section>

@@ -7,8 +7,10 @@
 body {
   width: 100%;
   font-family: "Roboto", sans-serif;
-  user-select: none;
+}
 
+.nav-container > *:not(.img-box){
+  user-select: none;
 }
 
 :root {

@@ -1,6 +1,10 @@
 /* 2.5% of 1000 pixels, which equals 25 pixels */
 /* 768 pixels, which equals 19.2 pixels. */
 
+.info-ctn > *:not(.raaa){
+    user-select: none;
+}
+
 :root {
     --clr-primary: #3e1309;
     --clr-secondary: #578b5a;
@@ -18,6 +22,7 @@
 
 .header-container > *:not(.farm-img){
     position: absolute; 
+    user-select: none;
 }
 
 .header-container{
@@ -55,6 +60,7 @@
     justify-content: center;
     text-align: center;
     padding: 0px 40px;
+    user-select: none;
 }
 
 .rancher-guide p{
@@ -136,20 +142,12 @@
     transition: all 0.3s ease 0s;
     position: relative;
 }
-/* 
-.forSale-btn.forSale-phone::after{
-    content: "417-737-BEEF (2333)";
-    position: absolute;
-} */
-
 
 .forSale-btn h5{
     font-size: clamp(1rem, 2.5vw, 1.8rem);
     font-weight: var(--fw-bold);
     color: var(--clr-light);
     padding-bottom: 5px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
 }
 
 .forSale-btn p{
@@ -157,6 +155,11 @@
     font-weight: var(--fw-bold);
     color: var(--clr-light);
 }
+
+.forSale-btn .phone-number{
+    transition: all 0.3s ease 0s;
+}
+
 
 /* LEARN MORE BTN */
 .learnMore-btn{
@@ -239,7 +242,7 @@
         padding: 12px 20px;
     }
 
-    .forSale-s-btn h5, p{
+    .forSale-s-btn h5, .forSale-s-btn p{
         font-weight: var(--fw-bold);
         color: var(--clr-light);
         padding-bottom: 3px;
