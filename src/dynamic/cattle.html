@@ -11,7 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;1,8..144,300;1,8..144,400;1,8..144,500&family=Roboto:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-
+    <!-- LORDICON -->
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/8f5cf0b518.js" crossorigin="anonymous" defer></script>
 
@@ -26,6 +27,8 @@
     
     <!-- CATTLE SCRIPT -->
     <script src="cattle.js" defer></script>
+
+
 </head>
 <body>
 <header>
@@ -49,6 +52,7 @@
           <img src="../../images/call.svg" width="70px" alt="placeholder"/>
           <div class="info">
             <p style="float: none">417-737-BEEF (2333)</p>
+            
           </div>
         </div>
       </div>
@@ -148,6 +152,13 @@
           <div class="forSale-btn">
             <h5 class="phone-number">FOR SALE</h5>
             <p class="phone-icon">$ Call for Pricing</p>
+            <lord-icon
+                id="hidePhoneIcon"
+                src="https://cdn.lordicon.com/rsvfayfn.json"
+                trigger="hover"
+                colors="primary:#ffffff"
+                style="width:50px;height:50px; display: none">
+               </lord-icon>
           </div>
 
           <!-- LEARN MORE -->
@@ -226,7 +237,6 @@
 
         </script>
 </section>
-
 
     
 </body>

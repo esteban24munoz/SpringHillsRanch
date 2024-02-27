@@ -23,15 +23,34 @@ if (!isset($_SESSION['username'])) {
     <script src="https://kit.fontawesome.com/8f5cf0b518.js" crossorigin="anonymous" defer></script>
 
     <!-- STYLESHEET -->
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../login.css">
 
     <style>
-        h1 {
-            padding: 40px 80px;
-            font-size: clamp(2rem, 5vw, 2.5rem);
+        .welcome{
+            position: relative;
+        }
+        .welcome > *:not(img){
+            position: absolute;
+            user-select: none;
+        }
+		.welcome img{
+            width: 100%;
+		}
+		
+        .welcome h1{ 
+			padding-bottom: 5px;
+            font-size: clamp(1.5rem, 3vw, 3rem);
             font-family: "Roboto Serif", serif;
+            color: var(--clr-light);
+            text-shadow: rgb(0, 0, 0) 1px 0 5px;
         }
 
+        .log-out{
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
         .removeBull-ctn p {
             padding: 20px;
             font-size: clamp(0.9rem, 3vw, 1.2rem);
@@ -68,39 +87,53 @@ if (!isset($_SESSION['username'])) {
         <!-- Navbar -->
         <div class="nav-container">
             <div class="img-box">
-                <img src="../../images/Logo-Black.svg" alt="Logo" />
+                <img src="../../../images/Logo-Black.svg" alt="Logo" />
             </div>
         </div>
     </header>
 
+	<!-- WELCOME/LOG OUT -->
+	<div class="welcome">
+        <div class="log-out">
+            <h1>Welcome Mr. Ron!</h1>
+            <a href="logout.php" style="color:black">Log out</a>
+        </div>
+        <img src="../../../images/panel.svg" alt="bull-img" />
 
-    <h1>Welcome Mr. Ron!</h1>
+	</div>
 
-    <!-- Remove Bull -->
+    <!-- REMOVE BULL -->
     <section>
         <div class="removeBull-ctn">
             <h2>DELETE A BULL:</h2>
             <hr style="height:2px;border-width:0;color:gray;background-color:gray">
             <!-- post back technique -->
-            <form action="panel.php" method="post">
+            <form action="removeBull.php" method="post">
+
+            <?php
+
+            echo " 
                 <p>
-                    <input class="check" id="check-1" type="checkbox" name="bullgone" value="bull-1">
-                    <label for="check-1">Mr. Cherokee - K14</label>
+                    <input class='check' id='check-1' type='checkbox' name='bullgone' value='bull-1'>
+                    <label for='check-1'>Mr. Cherokee - K14</label>
                 </p>
                 <p>
-                    <input class="check" id="check-2" type="checkbox" name="bullgone" value="bull-2">
-                    <label for="check-2">Mr. Easy Mission</label>
+                    <input class='check' id='check-2' type='checkbox' name='bullgone' value='bull-2'>
+                    <label for='check-2'>Mr. Easy Mission</label>
                 </p>
                 <p>
-                    <input class="check" id="check-3" type="checkbox" name="bullgone" value="bull-3">
-                    <label for="check-3">Mr. Easy Select - K16</label>
+                    <input class='check' id='check-3' type='checkbox' name='bullgone' value='bull-3'>
+                    <label for='check-3'>Mr. Easy Select - K16</label>
                 </p>
+                "
+
+            ?>
             </form>
         </div>
 
     </section>
 
-    <!-- Add Bull -->
+    <!-- ADD BULL -->
     <section>
         <div class="addBull-ctn">
             <h2 style="color: #17C508">ADD A BULL: </h2>
@@ -108,30 +141,34 @@ if (!isset($_SESSION['username'])) {
 
             <div class="form-wrapper">
             <!-- post back technique -->
-            <form action="panel.php" method="post">
-                <p style="padding-top: 20px;">
-                    <label for="bullName">Bull Name:</label>
+            <form action="addBull.php" method="POST">
+
+<?php
+            echo "
+                <p style='padding-top: 20px;'>
+                    <label for='bullName'>Bull Name:</label>
                 </p>
                 <p>
-                    <input class="rounded-input" id="bullName" type="text" name="bullName" autofocus required>
+                    <input class='rounded-input' id='bullName' type='text' name='bullName' autofocus required>
                 </p>
 
-                <p style="padding-top: 20px;">
-                    <label for="RAAA">RAAA#:</label>
+                <p style='padding-top: 20px;'>
+                    <label for='RAAA'>RAAA#:</label>
                 </p>
                 <p>
-                    <input class="rounded-input" id="RAAA" type="text" name="RAAA" required>
+                    <input class='rounded-input' id='RAAA' type='text' name='RAAA' required>
                 </p>
-                <p style="padding-top: 20px;">
-                    <label for="dob">Date of Birth:</label>
-                </p>
-                <p>
-                    <input class="rounded-input" id="dob" type="date" name="dob" required>
+                <p style='padding-top: 20px;'>
+                    <label for='dob'>Date of Birth:</label>
                 </p>
                 <p>
-                    <input class="rounded-input submit-btn" type="submit" value="Submit" style="cursor: pointer">
+                    <input class='rounded-input' id='dob' type='date' name='dob' required>
                 </p>
-
+                <p>
+                    <input class='rounded-input submit-btn' type='submit' value='Submit' style='cursor: pointer'>
+                </p>
+                "
+?>
             </form>
             </div>
         </div>
@@ -143,7 +180,7 @@ if (!isset($_SESSION['username'])) {
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //connect
-        $mysqli = new mysqli("localhost", "emunoz1", "H01761792", "emunoz1");
+        $mysqli = new mysqli('localhost', 'emunoz1', 'H01761792', 'emunoz1');
 
         //sanitize values
         $username = $mysqli->real_escape_string($_POST['username']);
@@ -155,7 +192,7 @@ if (!isset($_SESSION['username'])) {
 
         //Authenticate the user
         if ($result->num_rows == 0) {
-            echo "Username could not be found";
+            echo 'Username could not be found';
         } else {
             $row = $result->fetch_assoc();
 
