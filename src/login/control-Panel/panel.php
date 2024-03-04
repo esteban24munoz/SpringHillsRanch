@@ -22,41 +22,47 @@ if (!isset($_SESSION['username'])) {
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/8f5cf0b518.js" crossorigin="anonymous" defer></script>
 
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <!-- STYLESHEET -->
-    <link rel="stylesheet" href="../login.css">
+    <link rel="stylesheet" href="panel.css">
 
     <style>
-        .welcome{
+        .welcome {
             position: relative;
         }
-        .welcome > *:not(img){
+
+        .welcome>*:not(img) {
             position: absolute;
             user-select: none;
         }
-		.welcome img{
+
+        .welcome img {
             width: 100%;
-		}
-		
-        .welcome h1{ 
-			padding-bottom: 5px;
+        }
+
+        .welcome h1 {
+            padding-bottom: 5px;
             font-size: clamp(1.5rem, 3vw, 3rem);
             font-family: "Roboto Serif", serif;
             color: var(--clr-light);
             text-shadow: rgb(0, 0, 0) 1px 0 5px;
         }
 
-        .log-out{
+        .log-out {
             text-align: center;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
+
         .removeBull-ctn p {
             padding: 20px;
             font-size: clamp(0.9rem, 3vw, 1.2rem);
         }
 
-        .addBull-ctn p{
+        .addBull-ctn p {
             padding: 5px;
             font-size: clamp(0.9rem, 3vw, 1.2rem);
         }
@@ -75,9 +81,16 @@ if (!isset($_SESSION['username'])) {
             padding: 20px 80px;
         }
 
-        .rounded-input{
+        .rounded-input {
             min-width: 337px;
             max-width: 500px;
+        }
+
+        .main-img{
+            width: 300px;
+        }
+        .main-img img{
+            width: 100%;
         }
     </style>
 </head>
@@ -92,27 +105,173 @@ if (!isset($_SESSION['username'])) {
         </div>
     </header>
 
-	<!-- WELCOME/LOG OUT -->
-	<div class="welcome">
-        <div class="log-out">
-            <h1>Welcome Mr. Ron!</h1>
-            <a href="logout.php" style="color:black">Log out</a>
+    <main>
+        <!-- WELCOME/LOG OUT -->
+        <div class="welcome">
+            <div class="log-out">
+                <h1>Welcome Mr. Ron!</h1>
+                <a href="logout.php" style="color:black">Log out</a>
+            </div>
+            <img src="../../../images/panel.svg" alt="bull-img" />
+
         </div>
-        <img src="../../../images/panel.svg" alt="bull-img" />
+        
+        <!-- ADD BULL -->
+        <section>
+            <div class="addBull-ctn">
+                <h2 style="color: #17C508">ADD A BULL: </h2>
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                
+                <div class="form-wrapper">
+                    
+                    <!-- POST TO AddBull.php -->
+                    <form action="addBull.php" method="POST" enctype="multipart/form-data" id='add_form'>
+                        
+                        <?php
+                        echo "
+                        <p style='padding-top: 20px;'>
+                        <label for='bullName'>Bull Name:</label>
+                        </p>
+                        <p>
+                        <input class='rounded-input' id='bullName' type='text' name='bullName' required>
+                        </p>
+                        
+                        <p style='padding-top: 20px;'>
+                        <label for='RAAA'>RAAA#:</label>
+                        </p>
+                        <p>
+                        <input class='rounded-input' id='RAAA' type='text' name='RAAA' required>
+                        </p>
+                        <p style='padding-top: 20px;'>
+                        <label for='dob'>Date of Birth:</label>
+                        </p>
+                        <p>
+                        <input class='rounded-input' id='dob' type='date' name='dob' required>
+                        </p>
+                        <p>
+                        
+                        <p style='padding-top: 20px;'>
+                        <label for='main-file'>Main Image:</label>
+                        </p>
 
-	</div>
+                        <p id='errorMs' style='color:red;'>
+                        </p>
+                        <p>
+                        <input id='main-file' type='file'>
+                        </p>
 
-    <!-- REMOVE BULL -->
-    <section>
-        <div class="removeBull-ctn">
-            <h2>DELETE A BULL:</h2>
-            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-            <!-- post back technique -->
-            <form action="removeBull.php" method="post">
+                        
+                        <p style='padding-top: 20px;'>
+                        <label for='file1'>Image #1:</label>
+                        </p>
 
-            <?php
+                        <p id='errorMs' style='color:red;'>
+                        </p>
+                        <p>
+                        <input id='file1' type='file'>
+                        </p>
 
-            echo " 
+
+                        <p style='padding-top: 20px;'>
+                        <label for='file2'>Image #2:</label>
+                        </p>
+
+                        <p id='errorMs' style='color:red;'>
+                        </p>
+                        <p>
+                        <input id='file2' type='file'>
+                        </p>
+
+
+                        <p style='padding-top: 20px;'>
+                        <label for='file3'>Image #3:</label>
+                        </p>
+
+                        <p id='errorMs' style='color:red;'>
+                        </p>
+                        <p>
+                        <input id='file3' type='file'>
+                        </p>
+                        
+                        <p>
+                        <input class='rounded-input submit-btn' type='submit' id='submit' value='Submit' style='cursor: pointer; margin-top: 20px;'>
+                        </p>
+                        ";
+                        ?>
+                    </form>
+
+
+                    <!-- DISPLAY IMG -->
+                    <?php
+
+                    #database connection file
+                
+                    $mysqli = new mysqli ("localhost", "emunoz1", "H01761792", "emunoz1");
+                    
+                    $sql = "SELECT image_name FROM springhillsranch";
+
+                    $result = $mysqli->query($sql);
+
+                    while($row = $result->fetch_assoc()){
+                        echo "
+                            <div class='main-upload'>
+                                <img src='".$row['image_name']."'>
+                            </div>
+                        ";
+                    }
+
+                    ?>
+                    
+                    <!-- JS Handle IMG ERROR-->
+                    <script>
+                        $(document).ready(function(){
+                        // jQuery methods go here...
+                            
+                            $("#submit").click(function(e){
+                                e.preventDefault();
+                                
+                                let form_data = new FormData();
+                                let mainImg = $("#main-file")[0].files;
+
+                                //check image selected of not
+                                if(mainImg.length > 0){
+                                    form_data.append('main_image', mainImg[0]);
+
+                                        $.ajax({
+                                            url: 'addBull.php',
+                                            type: 'post',
+                                            data: form_data,
+                                            contentType: false,
+                                            processData: false,
+                                            success: function(res){
+                                                const data = JSON.parse(res);
+                                                if(data.error == 1){
+                                                    $("#errorMs").text(data.em);                     
+                                                }
+                                            }
+                                        });
+                                }
+                                else{
+                                    $("#errorMs").text("Please select an image.");
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </section>
+
+        <!-- REMOVE BULL -->
+        <section>
+            <div class="removeBull-ctn">
+                <h2>DELETE A BULL:</h2>
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                <!-- post back technique -->
+                <form action="removeBull.php" method="post">
+
+                    <?php
+
+                    echo " 
                 <p>
                     <input class='check' id='check-1' type='checkbox' name='bullgone' value='bull-1'>
                     <label for='check-1'>Mr. Cherokee - K14</label>
@@ -125,95 +284,19 @@ if (!isset($_SESSION['username'])) {
                     <input class='check' id='check-3' type='checkbox' name='bullgone' value='bull-3'>
                     <label for='check-3'>Mr. Easy Select - K16</label>
                 </p>
-                "
 
-            ?>
-            </form>
-        </div>
-
-    </section>
-
-    <!-- ADD BULL -->
-    <section>
-        <div class="addBull-ctn">
-            <h2 style="color: #17C508">ADD A BULL: </h2>
-            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-
-            <div class="form-wrapper">
-            <!-- post back technique -->
-            <form action="addBull.php" method="POST">
-
-<?php
-            echo "
-                <p style='padding-top: 20px;'>
-                    <label for='bullName'>Bull Name:</label>
-                </p>
                 <p>
-                    <input class='rounded-input' id='bullName' type='text' name='bullName' autofocus required>
+                <input class='rounded-input submit-btn' type='submit' id='submit' value='Submit' style='cursor: pointer'>
                 </p>
+                ";
 
-                <p style='padding-top: 20px;'>
-                    <label for='RAAA'>RAAA#:</label>
-                </p>
-                <p>
-                    <input class='rounded-input' id='RAAA' type='text' name='RAAA' required>
-                </p>
-                <p style='padding-top: 20px;'>
-                    <label for='dob'>Date of Birth:</label>
-                </p>
-                <p>
-                    <input class='rounded-input' id='dob' type='date' name='dob' required>
-                </p>
-                <p>
-                    <input class='rounded-input submit-btn' type='submit' value='Submit' style='cursor: pointer'>
-                </p>
-                "
-?>
-            </form>
+                    ?>
+                </form>
             </div>
-        </div>
 
-    </section>
+        </section>
 
-
-    <!-- PHP SECURITY -->
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //connect
-        $mysqli = new mysqli('localhost', 'emunoz1', 'H01761792', 'emunoz1');
-
-        //sanitize values
-        $username = $mysqli->real_escape_string($_POST['username']);
-        $password = $_POST['password'];
-
-        //PASSWORD HASH MATCHES USERNAME
-        $sql = "SELECT username, passhash FROM user WHERE username='$username'";
-        $result = $mysqli->query($sql);
-
-        //Authenticate the user
-        if ($result->num_rows == 0) {
-            echo 'Username could not be found';
-        } else {
-            $row = $result->fetch_assoc();
-
-            //return bool
-            if (password_verify($_POST['password'], $row['passhash'])) {
-
-                //start and set session
-                session_start();
-                $_SESSION['username'] = $username;
-                echo "Welcome, $row[username]!";
-
-                //Redirects to the panel.php
-                header("Location: panel.php");
-            } else {
-                echo "<p style='color: red;'>Incorrect username or password</p>";
-            }
-        }
-    }
-
-    ?>
-
+    </main>
 </body>
 
 </html>

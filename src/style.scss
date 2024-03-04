@@ -169,6 +169,7 @@ body {
 
 .nav-links .nav_list .nav_item a{
   font-size: clamp(15px, 3vw, 20px);
+  font-family: var(--ff-header);
 }
 
 .nav_list {
@@ -251,18 +252,24 @@ body {
 }
 
 
-/* BULLS SECTION */
+/* OUR BEST BULLS SECTION */
 
-.bull-container {
+.carousel-section{
+  display: flex;
+  flex-direction: column;
+  max-height: 750px;
+}
+
+.carousel-section .title-container {
   display: flex;
   flex-direction: column;
   background: linear-gradient(180deg, #6b361d 0%, rgba(151, 95, 45, 0.81) 100%);
-  min-height: 582px;
+  min-height: 450px;
   text-align: center;
   padding-top: 70px;
 }
 
-.bull-container {
+.carousel-section .title-container {
 
   h2, p{ 
   padding: 10px;
@@ -282,12 +289,11 @@ body {
 }
 
 
-// CAROUSEL 
+// CAROUSEL ctn
 .carousel-container{
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 200px;
 }
 
 .wrapper {
@@ -331,7 +337,6 @@ body {
 .carousel .card{
   scroll-snap-align: start;
   width: auto;
-  min-height: 500px;
   list-style: none;
   background-color: var(--clr-primary);
   color: var(--clr-light);
@@ -355,6 +360,13 @@ body {
 .card h2{
   font-family: var(--ff-header);
   padding: 20px;
+}
+
+.card p{
+  text-align: justify;
+  opacity: 0.8;
+  font-size: clamp(0.8rem, 3vw, 1rem);
+  padding: 0px 30px 30px 30px;
 }
 
 .wrapper i{
@@ -393,6 +405,7 @@ body {
   .wrapper .carousel{
     grid-auto-columns: calc((100% / 2) - 12px);
   }
+  
 }
 
 @media (max-width: 600px){
@@ -409,16 +422,19 @@ body {
 
 .about-cattle{
   display: flex;
-  justify-content: space-around;
+  min-height: 90vh;
+  gap: 60px;
+  justify-content: space-evenly;
   padding: 0px 80px;
   padding-bottom: 60px;
+  //background-image: url("../../images/icon-bkg.png");
   // max-height: 100vh;
 }
 
 .about-cattle .text-wrapper{
   max-width: 500px;
   min-width: 300px;
-  padding-top: 75px;
+  padding-top: 8%;
 
 }
 
@@ -436,6 +452,7 @@ body {
   }
   .image{
     max-width: 700px;
+    min-width: 350px;
   }
   img{
     width: 100%;
@@ -458,24 +475,23 @@ body {
 //MESSAGE
 .img-container{
   position: relative;
-
 }
 
 .img-container{
 
   .message{
-    background-color: var(--clr-background2);
+    background-color: var(--clr-primary);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: auto;
-    padding: 50px;
-
+    padding: 5%;
+    border-radius: 0px 10px 10px 0px;
 
     h2{
       color: var(--clr-light);
       font-family: var(--ff-header);
-      font-size: 2.5rem;
+      font-size: clamp(1.2rem, 3vw, 3rem);
       font-style: italic;
       font-weight: var(--fw-bold);
     }

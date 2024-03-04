@@ -20,13 +20,13 @@
     <link rel="stylesheet" href="../css/style.css" />
 
     <!-- CATTLE CSS -->
-    <link rel="stylesheet" href="cattle.css" />
+    <link rel="stylesheet" href="../css/cattle.css" />
     
     <!--MAIN SCRIPT -->
-    <script src="../js/script.js" defer></script>
+    <script src="../js/navBar.js" defer></script>
     
     <!-- CATTLE SCRIPT -->
-    <script src="cattle.js" defer></script>
+    <script src="../js/cattle.js" defer></script>
 
 
 </head>
@@ -111,7 +111,7 @@
     <!-- RANCHERS GUIDE -->
     <div class="rancher-guide">
       <p>Want to know more about EPD’S?
-          <a class="guide-link" href="RAAA_Guide-to-EPDs.pdf" target="_blank">Ranchers Guide to EPD’S</a>
+          <a class="guide-link" href="../static/RAAA_Guide-to-EPDs.pdf" target="_blank">Ranchers Guide to EPD’S</a>
       </p>
   </div>
 
