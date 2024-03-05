@@ -458,6 +458,8 @@ body {
 
 .img-container img {
   width: 100%;
+  display: block;
+  object-fit: contain;
 }
 
 .farmer-bkg {
@@ -471,13 +473,14 @@ body {
 .farmer-container {
   display: flex;
   padding: 50px 80px;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  min-height: 100vh;
 }
 
 .farmer-container .image {
-  padding: 8%;
-  min-width: 750px;
+  max-width: 500px;
+  flex-basis: 50%;
 }
 
 .farmer-container .image img {
@@ -487,7 +490,9 @@ body {
 
 .farmer-container .text-wrapper {
   color: var(--clr-light);
-  min-width: 400px;
+  max-width: 550px;
+  min-width: 300px;
+  flex-basis: 50%;
 }
 
 .farmer-container h2 {
@@ -548,7 +553,7 @@ body {
 }
 
 .contact-container .image-wrapper {
-  max-width: 600px;
+  max-width: 400px;
   min-height: 80vh;
   padding-top: 50px;
 }

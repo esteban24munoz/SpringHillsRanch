@@ -478,6 +478,7 @@ body {
 //MESSAGE
 .img-container{
   position: relative;
+
 }
 
 .img-container{
@@ -502,6 +503,8 @@ body {
 
   img{
     width: 100%;
+    display: block;
+    object-fit: contain;
   }
 }
 
@@ -518,12 +521,15 @@ body {
 .farmer-container{
   display: flex;
   padding: 50px 80px;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  min-height: 100vh;
+
   
   .image{
-    padding: 8%;
-    min-width: 750px;
+    max-width: 500px;
+    flex-basis: 50%;
+
 
       img{
         width: 100%;
@@ -533,7 +539,9 @@ body {
 
   .text-wrapper{
     color: var(--clr-light);
-    min-width: 400px;
+    max-width: 550px;
+    min-width: 300px;
+    flex-basis: 50%;
   }
 
   h2{
@@ -603,7 +611,7 @@ body {
   }
 
   .image-wrapper{
-    max-width: 600px;
+    max-width: 400px;
     min-height: 80vh;
     padding-top: 50px;
     img{
