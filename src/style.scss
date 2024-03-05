@@ -31,7 +31,9 @@ body {
 .nav-container {
   display: flex;
   padding: 0px 44px;
-  background-color: var(--clr-light);
+  background-image: url('../../images/bkg-texture.svg');
+  background-position: center; 
+  background-repeat: no-repeat; 
   justify-content: space-between;
   align-items: center;
 }
@@ -41,10 +43,14 @@ body {
   align-items: center;
 }
 
-.nav-container .info-container .info {
+.nav-container .info-container .info{
   padding-left: 10px;
   justify-content: center;
 }
+.nav-container .info-container .info p{
+  font-size: clamp(0.5rem, 3vw, 1.2rem);
+}
+
 
 .myVideo > *:not(.farm-video){
   position: absolute;
@@ -97,7 +103,6 @@ body {
 .nav-links {
   position: absolute;
   width: 703px;
-  height: 50px;
   background: var(--clr-background2);
   border-radius: 2%;
   text-align: center;
@@ -107,7 +112,7 @@ body {
 .nav-links ul {
   display: flex;
   justify-content: space-around;
-  padding: 0px 50px;
+  padding: 0px 30px;
 }
 
 .nav-links ul li {
@@ -168,7 +173,7 @@ body {
 }
 
 .nav-links .nav_list .nav_item a{
-  font-size: clamp(15px, 3vw, 20px);
+  font-size: clamp(0.5rem, 3vw, 1.3rem);
   font-family: var(--ff-header);
 }
 
@@ -258,6 +263,7 @@ body {
   display: flex;
   flex-direction: column;
   max-height: 750px;
+  background-image: url('../../images/icon-bkg-1.png');
 }
 
 .carousel-section .title-container {
@@ -427,8 +433,9 @@ body {
   justify-content: space-evenly;
   padding: 0px 80px;
   padding-bottom: 60px;
-  //background-image: url("../../images/icon-bkg.png");
-  // max-height: 100vh;
+  background-image: url("../../images/icon-bkg.png");
+  background-position: center; /* Center the image */
+  background-size: cover; 
 }
 
 .about-cattle .text-wrapper{
@@ -450,10 +457,6 @@ body {
     font-size: clamp(0.9rem, 3vw, 1.2rem);
 
   }
-  .image{
-    max-width: 700px;
-    min-width: 350px;
-  }
   img{
     width: 100%;
   }
@@ -464,7 +467,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+   
 
       h2{
         text-align: center;
@@ -507,17 +510,20 @@ body {
 
 .farmer-bkg{
   background-color: var(--clr-secondary);
-
+  background-image: url('../../images/cows-wallpaper.png');
+  background-position: center; /* Center the image */
+  background-size: cover; 
 }
 
 .farmer-container{
   display: flex;
-  padding: 0 80px;
+  padding: 50px 80px;
   justify-content: space-around;
   align-items: center;
   
   .image{
-    padding: 50px;
+    padding: 8%;
+    min-width: 750px;
 
       img{
         width: 100%;
@@ -527,20 +533,20 @@ body {
 
   .text-wrapper{
     color: var(--clr-light);
-    max-width: 500px;
+    min-width: 400px;
   }
 
   h2{
     text-align: center;
-    font-size: 2.5rem;
     font-family: var(--ff-header);
+    font-size: clamp(2rem, 3vw, 3rem);
     padding-bottom: 50px;
-
   }
 
   p{
     text-align: justify;
     line-height: 1.8;
+    font-size: clamp(0.8rem, 3vw, 1rem);
   }
 
 }
@@ -553,7 +559,7 @@ body {
     justify-content: center;
     align-items: center;
     height: auto;
-    padding: 80px 0px;
+    padding: 80px 80px;
   }
 }
 
