@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="icon" href="../images/Logo-Black.svg" />
+    <link rel="icon" href="../../../images/Logo-Black.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,7 +23,7 @@
         <!-- Navbar -->
         <div class="nav-container">
           <div class="img-box">
-            <img src="../../images/Logo-Black.svg" alt="Logo"/>
+            <img src="../../../../images/Logo-Black.svg" alt="Logo"/>
           </div>
         </div>
     </header>
@@ -76,7 +76,13 @@
 
     //Authenticate the user
     if ($result->num_rows == 0) {
-        echo "Username could not be found.";
+        echo "
+        <div style='display: flex; justify-content: center;'>
+			<p style='color: red;'>
+			Username could not be found
+			</p>
+			</div>
+            ";
     }
 
     else{ 
@@ -91,7 +97,7 @@
             echo "Welcome, $row[username]!";
             
             //specify an HTTP header to redirects the user to index.php
-            header("Location: panel.php");
+            header("Location: ./control-panel/panel.php");
         }
         else{
             echo "

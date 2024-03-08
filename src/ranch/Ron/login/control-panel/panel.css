@@ -1,0 +1,44 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+font-family: "Roboto", sans-serif;
+}
+
+:root {
+--clr-primary: #3e1309;
+--clr-secondary: #578b5a;
+--clr-third: #d1b480;
+--clr-dark: #000;
+--clr-light: #f5f2f2;
+--clr-background1: #6b361d, #975f2dcf;
+--clr-background2: #4c4634;
+--ff-header: "Roboto Serif", serif;
+--fw-light: 300;
+--fw-regular: 400;
+--fw-bold: 500;
+--fw-extrabold: 600;
+}
+
+/* NAVBAR */
+
+.nav-container {
+display: flex;
+padding: 0px 44px;
+background-color: white;
+justify-content: center;
+align-items: center;
+}
+
+.img-box{
+max-width: 350px;
+}
+
+.img-box img{
+width: 100%;
+}
+
+
