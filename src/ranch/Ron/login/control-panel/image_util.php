@@ -36,20 +36,20 @@ if(isset($_POST['submit'])){
                 //GET IMG
                 $fileDestination = $upload_directory_full.'/'.$fileNameId;
                 move_uploaded_file($fileTmpName, $fileDestination);
-                // header('Location: panel.php?uploadsucess');
-                print "<h2>Account Created</h2>\n" .
-                "<p><img src='uploads/$fileNameId' style='float:left; margin: 0pt 10pt 10px 10px;'></p>";
+                $imagesPath = '../ranch/Ron/login/'. $upload_dir. '/'. $fileNameId;
+                // print "<h2>Account Created</h2>\n" .
+                // "<p><img src='uploads/$fileNameId' style='float:left; margin: 0pt 10pt 10px 10px;'></p>";
             }
             else{
-                echo "Your file is too big!";
+                $errorImg = "Your file is too big!";
             }
         }
         else{
-            echo "There was an error uploading your file.";
+            $errorImg =  "There was an error uploading your file.";
         }
     }
     else{
-        echo "File extention not allowed.";
+        $errorImg = "File extention not allowed.";
     }
 
 }

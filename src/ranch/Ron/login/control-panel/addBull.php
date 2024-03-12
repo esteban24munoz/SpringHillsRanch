@@ -11,6 +11,7 @@ $dob = "";
 
 
 $errorMsg = "";
+$errorImg = "";
 $_SESSION['success'] = '';
 $_SESSION['checkOut'] = '';
 $_SESSION['cancel'] = true;
@@ -26,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     do{
         if (empty($bullName) || empty($raaa) ||
-            $bullName == "" || $raaa == "") {
+            $bullName == "") {
             $errorMsg = "Oops, Some fields are required.";
             break;
         }
@@ -36,24 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $raaa = htmlspecialchars($raaa);
         $dob = htmlspecialchars($dob);
 
-        // To use functions that upload and resize images
+        // Upload and check error for image uploading
         require('image_util.php');
 
-        // Save the uploaded image to the given filename
-        // $error_msg = UploadSingleImage($image_filename);
-        // if ($error_msg != "")
-        // ShowError($error_msg);
-        
-        // // Save uploaded image with a maximum width or height of 300 pixels
-        // CreateThumbnailImage($image_filename, $image_filename, 300);
-
-        // // Create a small thumbnail of the image to be used later
-        // $image_thumbnail = $username . "_thumb.jpg";
-        // CreateThumbnailImage($image_filename, "$upload_directory_full/$image_thumbnail", 60);
-
-
         //INSERT VALUES INTO DB
-        $sql = "INSERT INTO bulls_db (bullName, raaa, dob)" . "VALUES ('$bullName', $raaa, '$dob')";
+        $sql = "INSERT INTO bulls_db (bullName, raaa, dob, main_img)" . "VALUES ('$bullName', $raaa, '$dob', '$imagesPath')";
         $result = $mysqli->query($sql);
 
         if (!$result) {
@@ -72,8 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['checkOut'] = "Check it out";
         $_SESSION['cancel'] = false;
 
-        // header("location: panel.php");
-        // exit;
+        header("location: panel.php");
+        exit;
 
     } while(false);
 
@@ -133,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
               <!-- ERROR MSG   -->
                 <?php
-                if (!empty($errorMsg)) {
+                if (!empty($errorMsg) || !empty($errorImg)) {
                     echo "
                         <div class='alert alert-warning alert-dismissible fade show' role='alert'>
                         <strong>$errorMsg</strong>
@@ -142,9 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 ?>
 
-                <!-- SHOW IMG ERROR    -->
-                
-
+            
                 <form action="addBull.php" method="POST" enctype="multipart/form-data" id='add_form'>
                     <input type="hidden" name="MAX_FILE_SIZE" value="5000000">
 
