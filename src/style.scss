@@ -30,7 +30,7 @@ body {
 
 .nav-container {
   display: flex;
-  padding: 0px 44px;
+  padding: 0px 80px;
   background-image: url('../../images/bkg-texture.svg');
   background-position: center; 
   background-repeat: no-repeat; 
@@ -173,8 +173,9 @@ body {
 }
 
 .nav-links .nav_list .nav_item a{
-  font-size: clamp(0.5rem, 3vw, 1.3rem);
+  font-size: clamp(0.8rem, 2vw, 1.3rem);
   font-family: var(--ff-header);
+  font-weight: var(--fw-bold);
 }
 
 .nav_list {
@@ -216,7 +217,7 @@ body {
 }
 
 .mobile-nav a:hover{
-    background-color: #adbfe1;
+    background-color: #bfcde9;
 }
 
 /* SIDEBAR */
@@ -442,7 +443,10 @@ body {
   max-width: 500px;
   min-width: 300px;
   padding-top: 8%;
+}
 
+.image{
+  min-width: 300px;
 }
 
 .about-cattle{
@@ -497,7 +501,7 @@ body {
       font-family: var(--ff-header);
       font-size: clamp(1.2rem, 3vw, 3rem);
       font-style: italic;
-      font-weight: var(--fw-bold);
+      font-weight: var(--fw-extrabold);
     }
   }
 
@@ -625,7 +629,7 @@ body {
 @media (max-width: 1100px){
   .contact-container{
     flex-direction: column;
-    margin-bottom: 100px;
+    padding: 0px 50px;
 
     .form-wrapper{
       h3{
@@ -638,28 +642,19 @@ body {
 //FOOTER
 
 .foot-container{
-  position: relative;
   background-color: var(--clr-background2);
-
-    .bkg-farm{
-      width: 100%;
-    }
-}
-
-.foot-container > *:not(.bkg-farm){
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  
+  background-image: url('../../images/farm-footer.svg');
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover; 
+  padding: 50px; 
 }
 
 .foot-wrapper{
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-evenly;
-  max-width: 1200px;
+  flex-wrap: wrap-reverse;
   width: 100%;
    
   .logo-wrapper{
@@ -675,15 +670,10 @@ body {
 
   .text-wrapper{
     color: var(--clr-light);
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
 
     p{
-      padding-bottom: 10px;
+      padding-bottom: 20px;
     }
   }
 }
-
-// @media(max-width:750px){
-//   .bkg-farm{
-//   }
-
-// }
