@@ -129,19 +129,18 @@
 
   while($row = $result->fetch_assoc()){ 
 
-    $imagePath = $row['main_img'];
     
       echo "
     <!-- BULLS IN SALE -->
     <div class='bull-product-1'>
         <!-- eCommerce gallery -->
         <div class='product-gallery'>
-          <img src='$imagePath' class='bull-product' id='mainImg' alt='bull-product'>
+          <img src='$row[main_img]' class='bull-product' id='mainImg' alt='bull-product'>
 
           <!-- Small img container -->
           <div class='small-img-ctn'>
             <div class='small-img-col'>
-              <img src='$imagePath' class='small-img' alt='bull-product'>
+              <img src='$row[main_img]' class='small-img' alt='bull-product'>
             </div>
             <div class='small-img-col'>
               <img src='$row[img_1]' class='small-img' alt='bull-product'>

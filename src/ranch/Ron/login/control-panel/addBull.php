@@ -40,28 +40,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Upload and check error for image uploading
         require('image_util.php');
 
-        //INSERT VALUES INTO DB
-        $sql = "INSERT INTO bulls_db (bullName, raaa, dob, main_img)" . "VALUES ('$bullName', $raaa, '$dob', '$imagesPath')";
-        $result = $mysqli->query($sql);
-
-        if (!$result) {
-            // Error occurred while inserting data
-            $errorMsg = "Data is not Valid:" . $mysqli->connect_error;
+        if(!empty($errorImg)){
             break;
-        } 
+        }
+        else{
+            //INSERT VALUES INTO DB
+            $sql = "INSERT INTO bulls_db (bullName, raaa, dob, main_img)" . "VALUES ('$bullName', $raaa, '$dob', '$imagesPath')";
+            $result = $mysqli->query($sql);
 
-        $bullName = "";
-        $raaa = "";
-        $dob = "";
+            if (!$result) {
+                // Error occurred while inserting data
+                $errorMsg = "Data is not Valid:" . $mysqli->connect_error;
+                break;
+            } 
 
+            $bullName = "";
+            $raaa = "";
+            $dob = "";
 
-        //BULL ADDED!
-        $_SESSION['success'] = "Bull Added Successfully!";
-        $_SESSION['checkOut'] = "Check it out";
-        $_SESSION['cancel'] = false;
+            //BULL ADDED!
+            $_SESSION['success'] = "Bull Added Successfully!";
+            $_SESSION['checkOut'] = "Check it out";
+            $_SESSION['cancel'] = false;
 
-        header("location: panel.php");
-        exit;
+            header("location: panel.php");
+            exit;
+
+        }
 
     } while(false);
 
@@ -121,10 +126,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
               <!-- ERROR MSG   -->
                 <?php
-                if (!empty($errorMsg) || !empty($errorImg)) {
+                if (!empty($errorMsg)) {
                     echo "
                         <div class='alert alert-warning alert-dismissible fade show' role='alert'>
                         <strong>$errorMsg</strong>
+                        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                        </div>";
+                }
+                else if(!empty($errorImg)){
+                    echo "
+                        <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                        <strong>$errorImg</strong>
                         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                         </div>";
                 }
@@ -163,6 +175,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
                     </div>
 
+                    <!-- IMG-1  -->
+                    <div class='row mb-3'>
+                        <label class='col-sm-3 col-form-label' for='img1'>Image #1:</label>
+                        <div class='col-sm-6'>
+                            <input class='form-control' id='img1' type='file' name='img1' required>
+                        </div>
+                    </div>
+
+                    <!-- IMG-2   -->
+                    <div class='row mb-3'>
+                        <label class='col-sm-3 col-form-label' for='img2'>Image #2:</label>
+                        <div class='col-sm-6'>
+                            <input class='form-control' id='img2' type='file' name='img2' required>
+                        </div>
+                    </div>
+
+                    <!-- IMG-3   -->
+                    <div class='row mb-3'>
+                        <label class='col-sm-3 col-form-label' for='img3'>Image #3:</label>
+                        <div class='col-sm-6'>
+                            <input class='form-control' id='img3' type='file' name='img3' required>
+                        </div>
+                    </div>
+
                     <!-- SUBMIT & Cancel -->
                     <div class="row mb-3">
                         <div class="offset-sm-3 col-sm-3 d-grid">
@@ -174,24 +210,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
 
                 </form>
-
-                <!-- DISPLAY IMG -->
-
-                <!-- #database connection file
-                
-                    // $mysqli = new mysqli ("localhost", "emunoz1", "H01761792", "emunoz1");
-                    
-                    // $sql = "SELECT image_name FROM springhillsranch";
-
-                    // $result = $mysqli->query($sql);
-
-                    // while($row = $result->fetch_assoc()){
-                    //     echo "
-                    //         <div class='main-upload'>
-                    //             <img src='".$row['image_name']."'>
-                    //         </div>
-                    //     ";
-                    // } -->
         </div>
     </section>
 

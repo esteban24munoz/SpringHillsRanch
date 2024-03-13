@@ -1,4 +1,5 @@
 <?php 
+$errorImg = "";
 
 if(isset($_POST['submit'])){
 
@@ -18,8 +19,8 @@ if(isset($_POST['submit'])){
 
     // This is the directory the uploaded images will be placed in.
     // It must have priviledges sufficient for the web server to write to it
-    $upload_dir = 'control-panel/uploads';
-    $upload_directory_full = "/home/emunoz1/public_html/springhillsranch/website/src/ranch/Ron/login/$upload_dir";
+    $upload_dir = 'uploads';
+    $upload_directory_full = "/home/emunoz1/public_html/springhillsranch/website/src/dynamic/$upload_dir";
     if (!is_writeable($upload_directory_full))
     echo "The directory $upload_directory_full is not writeable.\n";
 
@@ -36,7 +37,7 @@ if(isset($_POST['submit'])){
                 //GET IMG
                 $fileDestination = $upload_directory_full.'/'.$fileNameId;
                 move_uploaded_file($fileTmpName, $fileDestination);
-                $imagesPath = '../ranch/Ron/login/'. $upload_dir. '/'. $fileNameId;
+                $imagesPath = $upload_dir. '/'. $fileNameId;
                 // print "<h2>Account Created</h2>\n" .
                 // "<p><img src='uploads/$fileNameId' style='float:left; margin: 0pt 10pt 10px 10px;'></p>";
             }
@@ -49,7 +50,7 @@ if(isset($_POST['submit'])){
         }
     }
     else{
-        $errorImg = "File extention not allowed.";
+        $errorImg = "File extension not allowed.";
     }
 
 }

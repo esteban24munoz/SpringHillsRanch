@@ -112,7 +112,7 @@ if (!isset($_SESSION['username'])) {
                             <div class='offset-sm-3 col-sm-6'>
                                 <div class='alert alert-success alert-dismissible fade show' role='alert'>
                                 <strong>{$_SESSION['success']}</strong>
-                                <a href='../../../../dynamic/cattle.php'>{$_SESSION['checkOut']}</a>
+                                <a href='../../../../dynamic/cattle.php' target='_blank'>{$_SESSION['checkOut']}</a>
                                 <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                                 </div>
                             </div>

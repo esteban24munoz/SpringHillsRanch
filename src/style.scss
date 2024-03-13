@@ -518,7 +518,6 @@ body {
 .farmer-bkg{
   background-color: var(--clr-secondary);
   background-image: url('../../images/cows-wallpaper.png');
-  background-position: center; /* Center the image */
   background-size: cover; 
 }
 
@@ -582,6 +581,7 @@ body {
   gap: 20px;
   justify-content: space-evenly;
   align-items: center;
+  min-height: 100vh;
   
 
   .form-wrapper{
