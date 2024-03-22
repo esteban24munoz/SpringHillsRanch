@@ -74,20 +74,33 @@
     flex-basis: 50%;
 }
 
-
+/* SECTION OF BULLS */
 .product-ctn-1{
     padding: 50px 80px;
 }
 
 
+/* BULLS GALLERY CONTAINER     */
 .bull-product-1{
     display: flex;
     flex-direction: row-reverse;
 }
 
-.bull-product-1 img{
-    width: 100%;
+.main-img-ctn{
+    display: block;
 }
+
+.bull-product-1 .main-img-ctn img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.small-img-ctn .small-img-col img{
+    width: 100%;
+    object-fit: cover;
+    height: 130px;
+}
+
 
 .small-img-ctn{
     display: flex;
@@ -100,7 +113,8 @@
     padding-bottom: 5px;
 }
 
-/* <!-- INFO CONTAINER --> */
+
+/* <!-- INFO OF BULLS CONTAINER --> */
 
 .info-ctn{
     display: flex;
@@ -266,3 +280,4 @@
     }
 
 }
+

@@ -21,10 +21,10 @@
   <link rel="stylesheet" href="cattle.css" />
 
   <!--MAIN SCRIPT -->
-  <script src="../js/script.js" defer></script>
+  <script src="../js/navBar.js" defer></script>
 
   <!-- CATTLE SCRIPT -->
-  <script src="cattle.js" defer></script>
+  <script src="../js/cattle.js" defer></script>
 
 
 </head>

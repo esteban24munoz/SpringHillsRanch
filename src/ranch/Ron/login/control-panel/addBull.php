@@ -44,27 +44,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
         }
         else{
-            //INSERT VALUES INTO DB
-            $sql = "INSERT INTO bulls_db (bullName, raaa, dob, main_img)" . "VALUES ('$bullName', $raaa, '$dob', '$imagesPath')";
-            $result = $mysqli->query($sql);
+            // print_r($imagesPath);
+            //GET VALUES FROM ARRAY
+            $arrayPaths = getValuesFromImagePath($imagesPath);
+            if($arrayPaths !== null){
+                list($main_path, $path1, $path2, $path3) = $arrayPaths;
 
-            if (!$result) {
-                // Error occurred while inserting data
-                $errorMsg = "Data is not Valid:" . $mysqli->connect_error;
+                //INSERT VALUES INTO DB
+                $sql = "INSERT INTO bulls_db (bullName, raaa, dob, main_img, img_1, img_2, img_3)" . "VALUES ('$bullName', $raaa, '$dob', '$main_path', '$path1', '$path2', '$path3')";
+                $result = $mysqli->query($sql);
+
+                if (!$result) {
+                    // Error occurred while inserting data
+                    $errorMsg = "Data is not Valid:" . $mysqli->connect_error;
+                    break;
+                } 
+
+                $bullName = "";
+                $raaa = "";
+                $dob = "";
+
+                //BULL ADDED!
+                $_SESSION['success'] = "Bull Added Successfully!";
+                $_SESSION['checkOut'] = "Check it out";
+                $_SESSION['cancel'] = false;
+
+                header("location: panel.php");
+                exit;
+            }
+            else{
+                $errorMsg = "Something went wrong uploading images";
                 break;
-            } 
-
-            $bullName = "";
-            $raaa = "";
-            $dob = "";
-
-            //BULL ADDED!
-            $_SESSION['success'] = "Bull Added Successfully!";
-            $_SESSION['checkOut'] = "Check it out";
-            $_SESSION['cancel'] = false;
-
-            header("location: panel.php");
-            exit;
+            }
 
         }
 
@@ -185,17 +196,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <!-- IMG-2   -->
                     <div class='row mb-3'>
-                        <label class='col-sm-3 col-form-label' for='img2'>Image #2:</label>
+                        <label class='col-sm-3 col-form-label' for='img2'>Image #2 (Optional):</label>
                         <div class='col-sm-6'>
-                            <input class='form-control' id='img2' type='file' name='img2' required>
+                            <input class='form-control' id='img2' type='file' name='img2'>
                         </div>
                     </div>
 
                     <!-- IMG-3   -->
                     <div class='row mb-3'>
-                        <label class='col-sm-3 col-form-label' for='img3'>Image #3:</label>
+                        <label class='col-sm-3 col-form-label' for='img3'>Image #3 (Optional):</label>
                         <div class='col-sm-6'>
-                            <input class='form-control' id='img3' type='file' name='img3' required>
+                            <input class='form-control' id='img3' type='file' name='img3'>
                         </div>
                     </div>
 
