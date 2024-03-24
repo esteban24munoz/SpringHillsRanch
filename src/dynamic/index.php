@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spring Hills Ranch</title>
-    <link rel="icon" href="../images/Logo-Black.svg" />
+    <link rel="icon" href="../../images/FavIcon-Hills.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,10 +18,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css" />
 
-    <!--MENU SCRIPT -->
-    <script src="../js/script.js" defer></script>
+    <!--NAVBAR SCRIPT -->
+    <script src="../js/navBar.js" defer></script>
       
-
     <!--BULL CARDS SCRIPT  -->
     <script src="../js/carousel.js" defer></script>
           
@@ -32,7 +31,9 @@
     
       <div class="nav-container">
         <div class="img-box">
-          <img src="../../images/Logo-Black.svg" alt="Logo"/>
+        <a href="index.php">
+          <img src="../../images/Logo-Black.svg" alt="Logo" />
+        </a>
         </div>
 
         <button class="hamburger">
@@ -42,8 +43,8 @@
         <div class="info-container">
           <img src="../../images/placeholder.svg" width="70px" alt="placeholder"/>
           <div class="info" style="padding-right: 30px;">
-            <p style="float: none">P.O BOX 488<br>
-              MT. Vernon, MO 65712</p>
+            <p style="float: none;">P.O BOX 488<br>
+            MT. Vernon, MO 65712</p>
           </div>
           <img src="../../images/call.svg" width="70px" alt="placeholder"/>
           <div class="info">
@@ -55,16 +56,16 @@
       <nav class="mobile-nav">
         <ul class="nav_list">
           <li class="nav_item">
-            <a href="index.php" id="event" class="nav_link">Home</a>
+            <a href="index.php" id="linkEvent" class="nav_link">Home</a>
           </li>
           <li class="nav_item">
-            <a href="../static/aboutUs.html" id="aboutUs" class="nav_link">About Us</a>
+            <a href="../static/aboutUs.html" id="linkEvent" class="nav_link">About Us</a>
           </li>
           <li class="nav_item">
-            <a href="cattle.php" id="pastors" class="nav_link">Cattle</a>
+            <a href="cattle.php" id="linkEvent" class="nav_link">Cattle</a>
           </li>
           <li class="nav_item">
-            <a href="../static/contact.html" class="nav_link">Contact</a>
+            <a href="../static/contact.html" id="linkEvent" class="nav_link">Contact</a>
           </li>
         </ul>
       </nav>
@@ -104,38 +105,40 @@
     
     </header>
 
+    <main>
     <!-- BULLS CARDS -->
-    <section>
-      <div class="bull-container">
+    <section class="carousel-section">
+      <div class="title-container">
         <h2>OUR BEST BULLS</h2>
-        <p style="font-weight: 400;">Best bulls you have ever seen</p>
+        <a href="cattle.php" style="font-weight: 400;color: white;">View all the bulls</a>
       </div>
 
       <div class="carousel-container">
       <div class="wrapper">
         <i class="fa-solid fa-chevron-left" id="left"></i>
         <ul class="carousel">
-          <li class="card">
-            <div class="photo">
-              <img src="../../images/card-1.jpg" alt="bull" draggable="false">
+
+        <?php 
+        //CONNECT TO DATABASE
+        $mysqli = new mysqli ("localhost", "emunoz1", "H01761792", "emunoz1");
+        
+        $sql = "SELECT * FROM bulls_db";
+
+        $result = $mysqli->query($sql);
+
+        while($row = $result->fetch_assoc()){ 
+
+        echo "
+          <li class='card'>
+            <div class='photo'>
+              <img src='$row[main_img]' alt='bull' draggable='false'>
             </div>
             <h2>Mr. Cherokee - K14</h2>
-            <p>Buy this bull!</p>
+            <p>Meet [Name], a striking example of the Red Angus breed, known for its robust build, impressive stature, and gentle disposition.</p>
           </li>
-          <li class="card">
-            <div class="photo">
-              <img src="../../images/card-2.jpg" alt="bull" draggable="false">
-            </div>
-            <h2>Mr. Easy Select - K16</h2>
-            <p>Buy this bull!</p>
-          </li>
-          <li class="card">
-            <div class="photo">
-              <img src="../../images/card-3.jpg" alt="bull" draggable="false">
-            </div>
-            <h2>Mr. Easy Mission - K21</h2>
-            <p>Buy this bull!</p>
-          </li>
+          ";
+        }
+          ?>
         </ul>
         <i class="fa-solid fa-chevron-right" id="right"></i>
       </div>
@@ -180,13 +183,12 @@
     </section>
     <!-- CONTACT US -->
 
-    <!-- TESTING PENDING -->
     <section>
       <div class="contact-container">
         <div class="form-wrapper">
         <h3>Contact <span style="color: #578b5a">Us!</span></h3>
 
-          <form action="mailto:emunoz1@harding.edu" method="post">
+          <form action="sendEmail.php" method="post">
             <p>
               <label for="client"></label>
               <input class="rounded-input" type="text" id="client" name="name" placeholder="Name" required />
@@ -224,26 +226,25 @@
     </section>
 
     <!-- FOOTER -->
-    <section>
       <footer>
         <div class="foot-container">
-          <img class="bkg-farm" src="../../images/farm-footer.svg" alt="cows">
           <div class="foot-wrapper">
             <div class="logo-wrapper">
               <img src="../../images/Logo-White.svg" alt="Logo">
               &copy;Copyright <em>Esteban Munoz</em>
             </div>
             <div class="text-wrapper">
-              <p>Back to the top</p>
+              <a href="cattle.php" style="color: var(--clr-third);
+              padding-bottom: 20px;
+              display: block;">
+                View all the bulls</a>
                <p>417-737-BEEF (2333)</p> 
                <p>SpringHillsRanch@gmail.com</p> 
-               <p>P.O. Box 488</p> 
+               <p>P.O. Box 488, MT. Vernon, MO 65712</p> 
             </div>
           </div>          
         </div>
       </footer>
-
-    </section>
-
+      </main>
   </body>
 </html>

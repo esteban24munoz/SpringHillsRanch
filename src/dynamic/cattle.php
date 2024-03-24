@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="../css/style.css" />
 
   <!-- CATTLE CSS -->
-  <link rel="stylesheet" href="cattle.css" />
+  <link rel="stylesheet" href="../css/cattle.css" />
 
   <!--MAIN SCRIPT -->
   <script src="../js/navBar.js" defer></script>
@@ -35,7 +35,9 @@
 
     <div class="nav-container">
       <div class="img-box">
-        <img src="../../images/Logo-Black.svg" alt="Logo" />
+        <a href="index.php">
+          <img src="../../images/Logo-Black.svg" alt="Logo" />
+        </a>
       </div>
 
       <button class="hamburger">
@@ -135,7 +137,10 @@
     <div class='bull-product-1'>
         <!-- eCommerce gallery -->
         <div class='product-gallery'>
-          <img src='$row[main_img]' class='bull-product' id='mainImg' alt='bull-product'>
+
+          <div class='main-img-ctn'>
+          <img src='$row[main_img]' class='bull-product' id='mainImg' width='600px' height='400px' alt='bull-product'>
+          </div>
 
           <!-- Small img container -->
           <div class='small-img-ctn'>
@@ -149,7 +154,7 @@
               <img src='$row[img_2]' class='small-img' alt='bull-product'>
             </div>
             <div class='small-img-col'>
-              <img src='$row[img_2]' class='small-img' alt='bull-product'>
+              <img src=$row[img_3] class='small-img' alt='bull-product'>
             </div>
           </div>
 
@@ -180,7 +185,7 @@
 
           <!-- LEARN MORE -->
           <div class='learnMore-btn'>
-            <a href='https://zebu.redangus.org:8443/redspro/redspro/template/animalSearch%2CAnimalSearch.vm/action/animalSearch.AnimalSearchAction;jsessionid=0HGp1cIffKYlZ1QasfI_Ld9ATKgNc3a6-SSUshKT?eventSubmit_performAnimalSearch=exact&animalNumbers=4708639' target='_blank'>LEARN MORE</a>
+            <a href='https://zebu.redangus.org:8443/redspro/redspro/template/animalSearch%2CAnimalSearch.vm/action/animalSearch.AnimalSearchAction;jsessionid=0HGp1cIffKYlZ1QasfI_Ld9ATKgNc3a6-SSUshKT?eventSubmit_performAnimalSearch=exact&animalNumbers=$row[raaa]' target='_blank'>LEARN MORE</a>
           </div>
         </div>
 
