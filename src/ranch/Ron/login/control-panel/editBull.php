@@ -196,23 +196,6 @@ else{
 
                 </form>
 
-                <!-- DISPLAY IMG -->
-
-                <!-- #database connection file
-                
-                    // $mysqli = new mysqli ("localhost", "emunoz1", "H01761792", "emunoz1");
-                    
-                    // $sql = "SELECT image_name FROM springhillsranch";
-
-                    // $result = $mysqli->query($sql);
-
-                    // while($row = $result->fetch_assoc()){
-                    //     echo "
-                    //         <div class='main-upload'>
-                    //             <img src='".$row['image_name']."'>
-                    //         </div>
-                    //     ";
-                    // } -->
         </div>
     </section>
 

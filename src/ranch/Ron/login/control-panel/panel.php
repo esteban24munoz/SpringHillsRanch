@@ -3,7 +3,7 @@
 session_start();
 if (!isset($_SESSION['username'])) {
     //user has not authenticated
-    header("Location: login.php");
+    header("Location: ../login.php");
 }
 ?>
 
@@ -25,6 +25,9 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <!-- BOOTSTRAP  JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SWEETALERT BTN JS  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- STYLESHEET -->
     <link rel="stylesheet" href="panel.css">
@@ -159,19 +162,37 @@ if (!isset($_SESSION['username'])) {
                             <td>$row[created_at]</td>
                             <td>
                                 <a href='editBull.php?id=$row[id]' class='btn btn-primary btn-sm'>Edit</a>
-                                <a href='removeBull.php?id=$row[id]' class='btn btn-danger btn-sm'>Delete</a>
+                                <a href='removeBull.php?id=$row[id]' id='confirmDelete' class='btn btn-danger btn-sm' data-toggle='confirmation' data-title='Delete Bull?'>
+                                Delete</a>
                             </td>
                         </tr>
                             ";
                         }
-
                         ?>
 
                     </tbody>
                 </table>
             </div>
 
+            <script>
+                let confirmDelete = document.getElementById('confirmDelete').addEventListener('click', function(e) {
+                                        
+                    swal({
+                        title: "Are you sure?",
+                        text: "This form will be submitted",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then(function (isOkay) {
+                        if (isOkay) {
+                            alert("Are you sure?");
+                        }
+                    });
+                    return false;
+                });
 
+            </script>
         </section>
 
     </main>
