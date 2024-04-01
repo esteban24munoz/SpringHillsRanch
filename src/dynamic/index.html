@@ -182,50 +182,41 @@
         </div>
       </div>
     </section>
-    <!-- CONTACT US -->
+ <!-- CONTACT US -->
 
-    <!-- TESTING PENDING -->
-    <section>
-      <div class="contact-container">
-        <div class="form-wrapper">
-        <h3>Contact <span style="color: #578b5a">Us!</span></h3>
+ <section>
+  <div class="contact-container">
+    <div class="form-wrapper">
+      <h3>Contact <span style="color: #578b5a">Us!</span></h3>
 
-          <form action="mailto:emunoz1@harding.edu" method="post">
-            <p>
-              <label for="client"></label>
-              <input class="rounded-input" type="text" id="client" name="name" placeholder="Name" required />
-            </p>
-            <p>
-              <label for="email"></label>
-              <input class="rounded-input" type="email" id="email" name="email" placeholder="Email" required />
-            </p>
-            <p>
-              <label for="subject"></label>
-              <input class="rounded-input" type="text" id="subject" name="subject" placeholder="Bull prices, Questions?" required />
-            </p>
-            <p>
-              <label for="message"></label>
-              <textarea
-                class="rounded-input"
-                id="message"
-                class="rounded_input"
-                name="message"
-                placeholder="I am interested about..."
-                rows="7"
-                cols="50"
-              ></textarea>
-            </p>
-            <p>
-              <input type="submit" class="submit-btn rounded-input" value="Submit" />
-            </p>
-          </form>
-        </div>
-        <div class="image-wrapper">
-          <img src="../../images/farm-pic-1.svg" alt="farm picture"/>
-          <img src="../../images/farm-pic-2.svg" alt="farm picture"/>
-        </div>
-      </div>
-    </section>
+      <form action="sendEmail.php" method="post">
+        <p>
+          <label for="client"></label>
+          <input class="rounded-input" type="text" id="client" name="name" placeholder="Name" required />
+        </p>
+        <p>
+          <label for="email"></label>
+          <input class="rounded-input" type="email" id="email" name="email" placeholder="Email" required />
+        </p>
+        <p>
+          <label for="subject"></label>
+          <input class="rounded-input" type="text" id="subject" name="subject" placeholder="Bull prices, Questions?" required />
+        </p>
+        <p>
+          <label for="message"></label>
+          <textarea class="rounded-input" id="message" class="rounded_input" name="message" placeholder="I am interested about..." rows="7" cols="50"></textarea>
+        </p>
+        <p>
+          <input type="submit" class="submit-btn rounded-input" name="Submit" value="Submit" />
+        </p>
+      </form>
+    </div>
+    <div class="image-wrapper">
+      <img src="../../images/farm-pic-1.svg" alt="farm picture" />
+      <img src="../../images/farm-pic-2.svg" alt="farm picture" />
+    </div>
+  </div>
+</section>
 
     <!-- FOOTER -->
       <footer>

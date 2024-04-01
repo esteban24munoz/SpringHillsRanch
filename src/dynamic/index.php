@@ -1,96 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spring Hills Ranch</title>
-    <link rel="icon" href="../../images/FavIcon-Hills.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;1,8..144,300;1,8..144,400;1,8..144,500&family=Roboto:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
 
-    <!-- FONT AWESOME -->
-    <script src="https://kit.fontawesome.com/8f5cf0b518.js" crossorigin="anonymous" defer></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spring Hills Ranch</title>
+  <link rel="icon" href="../../images/FavIcon-Hills.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;1,8..144,300;1,8..144,400;1,8..144,500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css" />
+  <!-- FONT AWESOME -->
+  <script src="https://kit.fontawesome.com/8f5cf0b518.js" crossorigin="anonymous" defer></script>
 
-    <!--NAVBAR SCRIPT -->
-    <script src="../js/navBar.js" defer></script>
-      
-    <!--BULL CARDS SCRIPT  -->
-    <script src="../js/carousel.js" defer></script>
-          
-  </head>
-  <body>
-    <header>
-      <!-- Navbar -->
-    
-      <div class="nav-container">
-        <div class="img-box">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- LORDICON -->
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+  <!--NAVBAR SCRIPT -->
+  <script src="../js/navBar.js" defer></script>
+
+  <!--BULL CARDS SCRIPT  -->
+  <script src="../js/carousel.js" defer></script>
+
+</head>
+
+<body>
+  <header>
+    <!-- Navbar -->
+
+    <div class="nav-container">
+      <div class="img-box">
         <a href="index.php">
           <img src="../../images/Logo-Black.svg" alt="Logo" />
         </a>
-        </div>
+      </div>
 
-        <button class="hamburger">
-          <div class="bar"></div>
-        </button>
+      <button class="hamburger">
+        <div class="bar"></div>
+      </button>
 
-        <div class="info-container">
-          <img src="../../images/placeholder.svg" width="70px" alt="placeholder"/>
-          <div class="info" style="padding-right: 30px;">
-            <p style="float: none;">P.O BOX 488<br>
+      <div class="info-container">
+        <img src="../../images/placeholder.svg" width="70px" alt="placeholder" />
+        <div class="info" style="padding-right: 30px;">
+          <p style="float: none;">P.O BOX 488<br>
             MT. Vernon, MO 65712</p>
-          </div>
-          <img src="../../images/call.svg" width="70px" alt="placeholder"/>
-          <div class="info">
-            <p style="float: none">417-737-BEEF (2333)</p>
-          </div>
+        </div>
+        <img src="../../images/call.svg" width="70px" alt="placeholder" />
+        <div class="info">
+          <p style="float: none">417-737-BEEF (2333)</p>
         </div>
       </div>
-      <!-- Mobile Navbar -->
-      <nav class="mobile-nav">
+    </div>
+    <!-- Mobile Navbar -->
+    <nav class="mobile-nav">
+      <ul class="nav_list">
+        <li class="nav_item">
+          <a href="index.php" id="linkEvent" class="nav_link">Home</a>
+        </li>
+        <li class="nav_item">
+          <a href="../static/aboutUs.html" id="linkEvent" class="nav_link">About Us</a>
+        </li>
+        <li class="nav_item">
+          <a href="cattle.php" id="linkEvent" class="nav_link">Cattle</a>
+        </li>
+        <li class="nav_item">
+          <a href="../static/contact.html" id="linkEvent" class="nav_link">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+
+
+    <!-- Navbar LINKS -->
+    <div class="nav-background">
+      <div class="nav-links">
         <ul class="nav_list">
           <li class="nav_item">
-            <a href="index.php" id="linkEvent" class="nav_link">Home</a>
+            <a href="index.php" id="event" class="nav_link">Home</a>
           </li>
           <li class="nav_item">
-            <a href="../static/aboutUs.html" id="linkEvent" class="nav_link">About Us</a>
+            <a href="../static/aboutUs.html" id="aboutUs" class="nav_link">About Us</a>
           </li>
           <li class="nav_item">
-            <a href="cattle.php" id="linkEvent" class="nav_link">Cattle</a>
+            <a href="cattle.php" id="pastors" class="nav_link">Cattle</a>
           </li>
           <li class="nav_item">
-            <a href="../static/contact.html" id="linkEvent" class="nav_link">Contact</a>
+            <a href="../static/contact.html" class="nav_link">Contact</a>
           </li>
         </ul>
-      </nav>
-
-
-       
-      <!-- Navbar LINKS -->
-      <div class="nav-background">
-        <div class="nav-links">
-          <ul class="nav_list">
-            <li class="nav_item">
-              <a href="index.php" id="event" class="nav_link">Home</a>
-            </li>
-            <li class="nav_item">
-              <a href="../static/aboutUs.html" id="aboutUs" class="nav_link">About Us</a>
-            </li>
-            <li class="nav_item">
-              <a href="cattle.php" id="pastors" class="nav_link">Cattle</a>
-            </li>
-            <li class="nav_item">
-              <a href="../static/contact.html" class="nav_link">Contact</a>
-            </li>
-          </ul>
-        </div>
       </div>
+    </div>
     </div>
 
     <!-- video -->
@@ -102,10 +104,10 @@
         <source src="../../video/Ranch-Video.mp4" type="video/mp4" />
       </video>
     </div>
-    
-    </header>
 
-    <main>
+  </header>
+
+  <main>
     <!-- BULLS CARDS -->
     <section class="carousel-section">
       <div class="title-container">
@@ -114,37 +116,51 @@
       </div>
 
       <div class="carousel-container">
-      <div class="wrapper">
-        <i class="fa-solid fa-chevron-left" id="left"></i>
-        <ul class="carousel">
+        <div class="wrapper">
+          <i class="fa-solid fa-chevron-left" id="left"></i>
+          <ul class="carousel">
 
-        <?php 
-        //CONNECT TO DATABASE
-        $mysqli = new mysqli ("localhost", "emunoz1", "H01761792", "emunoz1");
-        
-        $sql = "SELECT * FROM bulls_db";
+            <?php
+            //CONNECT TO DATABASE
+            $mysqli = new mysqli("localhost", "emunoz1", "H01761792", "emunoz1");
 
-        $result = $mysqli->query($sql);
+            $sql = "SELECT * FROM bulls_db";
 
-        while($row = $result->fetch_assoc()){ 
+            $result = $mysqli->query($sql);
 
-        echo "
+            while ($row = $result->fetch_assoc()) {
+
+              echo "
           <li class='card'>
             <div class='photo'>
-              <img src='$row[main_img]' alt='bull' draggable='false'>
+              <img src='$row[main_img]' alt='bull' draggable='false' width='400px' height='300px'>
             </div>
-            <h2>Mr. Cherokee - K14</h2>
-            <p>Meet [Name], a striking example of the Red Angus breed, known for its robust build, impressive stature, and gentle disposition.</p>
+            <h2 style='user-select: none'>$row[bullName]</h2>
+
+            <div class='raaaInfo'>
+              <p>RAAA#: $row[raaa]  
+              <lord-icon
+              src='https://cdn.lordicon.com/oqdmuxru.json'
+              trigger='hover'
+              colors='primary:#ffffff'
+              style='width:25px;height:25px'>
+              </lord-icon>
+              </p>
+            </div>    
+            <div class='readMore-btn'>
+              <a href='cattle.php'>Read More</a>
+            </div>
+ 
           </li>
           ";
-        }
-          ?>
-        </ul>
-        <i class="fa-solid fa-chevron-right" id="right"></i>
+            }
+            ?>
+          </ul>
+          <i class="fa-solid fa-chevron-right" id="right"></i>
+        </div>
       </div>
-    </div>
     </section>
-    
+
     <!-- ABOUT OUR CATTLE -->
     <section>
       <div class="about-cattle">
@@ -186,65 +202,58 @@
     <section>
       <div class="contact-container">
         <div class="form-wrapper">
-        <h3>Contact <span style="color: #578b5a">Us!</span></h3>
+          <h3>Contact <span style="color: #578b5a">Us!</span></h3>
 
           <form action="sendEmail.php" method="post">
             <p>
               <label for="client"></label>
-              <input class="rounded-input" type="text" id="client" name="name" placeholder="Name" required />
+              <input class="rounded-input" type="text" id="client" name="name" value="" placeholder="Name" required />
             </p>
             <p>
               <label for="email"></label>
-              <input class="rounded-input" type="email" id="email" name="email" placeholder="Email" required />
+              <input class="rounded-input" type="email" id="email" name="email" value="" placeholder="Email" required />
             </p>
             <p>
               <label for="subject"></label>
-              <input class="rounded-input" type="text" id="subject" name="subject" placeholder="Bull prices, Questions?" required />
+              <input class="rounded-input" type="text" id="subject" name="subject" value="" placeholder="Bull prices, Questions?" required />
             </p>
             <p>
               <label for="message"></label>
-              <textarea
-                class="rounded-input"
-                id="message"
-                class="rounded_input"
-                name="message"
-                placeholder="I am interested about..."
-                rows="7"
-                cols="50"
-              ></textarea>
+              <textarea class="rounded-input" id="message" class="rounded_input" name="message" value="" placeholder="I am interested about..." rows="7" cols="50"></textarea>
             </p>
             <p>
-              <input type="submit" class="submit-btn rounded-input" value="Submit" />
+              <input type="submit" class="submit-btn rounded-input" name="Submit" value="Submit" />
             </p>
           </form>
         </div>
         <div class="image-wrapper">
-          <img src="../../images/farm-pic-1.svg" alt="farm picture"/>
-          <img src="../../images/farm-pic-2.svg" alt="farm picture"/>
+          <img src="../../images/farm-pic-1.svg" alt="farm picture" />
+          <img src="../../images/farm-pic-2.svg" alt="farm picture" />
         </div>
       </div>
     </section>
 
     <!-- FOOTER -->
-      <footer>
-        <div class="foot-container">
-          <div class="foot-wrapper">
-            <div class="logo-wrapper">
-              <img src="../../images/Logo-White.svg" alt="Logo">
-              &copy;Copyright <em>Esteban Munoz</em>
-            </div>
-            <div class="text-wrapper">
-              <a href="cattle.php" style="color: var(--clr-third);
+    <footer>
+      <div class="foot-container">
+        <div class="foot-wrapper">
+          <div class="logo-wrapper">
+            <img src="../../images/Logo-White.svg" alt="Logo">
+            &copy;Copyright <em>Esteban Munoz</em>
+          </div>
+          <div class="text-wrapper">
+            <a href="cattle.php" style="color: var(--clr-third);
               padding-bottom: 20px;
               display: block;">
-                View all the bulls</a>
-               <p>417-737-BEEF (2333)</p> 
-               <p>SpringHillsRanch@gmail.com</p> 
-               <p>P.O. Box 488, MT. Vernon, MO 65712</p> 
-            </div>
-          </div>          
+              View all the bulls</a>
+            <p>417-737-BEEF (2333)</p>
+            <p>SpringHillsRanch@gmail.com</p>
+            <p>P.O. Box 488, MT. Vernon, MO 65712</p>
+          </div>
         </div>
-      </footer>
-      </main>
-  </body>
+      </div>
+    </footer>
+  </main>
+</body>
+
 </html>
