@@ -27,7 +27,10 @@
       
     <!--BULL CARDS SCRIPT  -->
     <script src="../js/carousel.js" defer></script>
-          
+
+    <!--INDEX SCRIPT  -->
+    <script src="../js/index.js" defer></script>
+    
   </head>
   <body>
     <header>
@@ -98,7 +101,7 @@
     <!-- video -->
     <div class="myVideo">
       <div class="welcome">
-        <h1>Welcome to Our <br>Ranch</h1>
+        <h1 class="">Welcome to Our <br>Ranch</h1>
       </div>
       <video class="farm-video" autoplay muted loop>
         <source src="../../video/Ranch-Video.mp4" type="video/mp4" />
@@ -111,14 +114,35 @@
     <!-- BULLS CARDS -->
     <section class="carousel-section">
       <div class="title-container">
-        <h2>OUR BEST BULLS</h2>
-        <a href="cattle.php" style="font-weight: 400;color: white;">View all the bulls</a>
+        <h2 class="reveal">OUR BEST BULLS</h2>
+        <a href="cattle.php" class="reveal" style="font-weight: 400;color: white;">View all the bulls</a>
       </div>
 
-      <div class="carousel-container">
+      <div class="carousel-container reveal">
       <div class="wrapper">
         <i class="fa-solid fa-chevron-left" id="left"></i>
         <ul class="carousel">
+          <li class="card">
+            <div class="photo">
+              <img src="../../images/card-1.jpg" alt="bull" draggable="false">
+            </div>
+            <h2>Mr. Cherokee - K14</h2>
+            <div class='raaaInfo'>
+              <p>RAAA#: $row[raaa] 
+               
+              <lord-icon
+              src='https://cdn.lordicon.com/oqdmuxru.json'
+              trigger='hover'
+              colors='primary:#ffffff'
+              style='width:25px;height:25px'>
+              </lord-icon>
+              </p>
+            </div>   
+            <div class="readMore-btn">
+              <a href='cattle.php'>Read More</a>
+            </div>
+     
+          </li>
           <li class="card">
             <div class="photo">
               <img src="../../images/card-1.jpg" alt="bull" draggable="false">
@@ -144,11 +168,12 @@
         <i class="fa-solid fa-chevron-right" id="right"></i>
       </div>
     </div>
+    </div>
     </section>
     
     <!-- ABOUT OUR CATTLE -->
-    <section>
-      <div class="about-cattle">
+    <section class="tsymbol">
+      <div class="about-cattle reveal">
         <div class="text-wrapper">
           <h2>About Our Cattle</h2>
           <p>Meet [Bull's Name], a stunning [age]-year-old [color] [breed] bull with an impressive build and gentle temperament. This exceptional bull boasts robust health, showcasing a remarkable lineage of [mention noteworthy ancestors or bloodlines]. With a docile nature and easy handling, [Bull's Name] is trained to lead and interact well with handlers.
@@ -160,7 +185,7 @@
       </div>
     </section>
     <!-- MESSAGE -->
-    <section>
+    <section class="reveal">
       <div class="img-container">
         <img src="../../images/bullgrass.jpg" alt="bull">
         <div class="message">
@@ -171,7 +196,7 @@
     </section>
     <!-- RON AND DONNA -->
     <section class="farmer-bkg">
-      <div class="farmer-container">
+      <div class="farmer-container reveal">
         <div class="image">
           <img src="../../images/donna&ron.jpeg" alt="farmer-picture">
         </div>
@@ -184,7 +209,7 @@
     </section>
  <!-- CONTACT US -->
 
- <section>
+ <section class="reveal">
   <div class="contact-container">
     <div class="form-wrapper">
       <h3>Contact <span style="color: #578b5a">Us!</span></h3>
