@@ -5,7 +5,8 @@
   <meta charset='UTF-8'>
   <meta name='viewport' content="width=device-width, initial-scale=1.0">
   <title>Cattle</title>
-  <link rel="icon" href="../images/Logo-Black.svg" />
+  <link rel="icon" href="../../images/FavIcon-Hills.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;1,8..144,300;1,8..144,400;1,8..144,500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -120,19 +121,19 @@
 
       <?php
 
-  //CONNECT TO DATABASE
- 
-  
-  $mysqli = new mysqli ("localhost", "emunoz1", "H01761792", "emunoz1");
-  
-  $sql = "SELECT * FROM bulls_db";
+      //CONNECT TO DATABASE
 
-  $result = $mysqli->query($sql);
 
-  while($row = $result->fetch_assoc()){ 
+      $mysqli = new mysqli("localhost", "emunoz1", "H01761792", "emunoz1");
 
-    
-      echo "
+      $sql = "SELECT * FROM bulls_db";
+
+      $result = $mysqli->query($sql);
+
+      while ($row = $result->fetch_assoc()) {
+
+
+        echo "
     <!-- BULLS IN SALE -->
     <div class='bull-product-1'>
         <!-- eCommerce gallery -->
@@ -160,7 +161,11 @@
 
               <!-- SHOW UP-SMALL SCREEN -->
           <div class='learn-smallBtn'>
-            <a href='https://zebu.redangus.org:8443/redspro/redspro/template/animalSearch%2CAnimalSearch.vm/action/animalSearch.AnimalSearchAction;jsessionid=0HGp1cIffKYlZ1QasfI_Ld9ATKgNc3a6-SSUshKT?eventSubmit_performAnimalSearch=exact&animalNumbers=4708639' target='_blank'>LEARN MORE</a>
+            <a href='https://zebu.redangus.org:8443/redspro/redspro/template/animalSearch%2CAnimalSearch.vm/action/animalSearch.AnimalSearchAction;jsessionid=0HGp1cIffKYlZ1QasfI_Ld9ATKgNc3a6-SSUshKT?eventSubmit_performAnimalSearch=exact&animalNumbers=4708639' target='_blank'>
+              <button>
+                LEARN MORE
+              </button>
+            </a>
           </div>
         </div>
 
@@ -185,7 +190,11 @@
 
           <!-- LEARN MORE -->
           <div class='learnMore-btn'>
-            <a href='https://zebu.redangus.org:8443/redspro/redspro/template/animalSearch%2CAnimalSearch.vm/action/animalSearch.AnimalSearchAction;jsessionid=0HGp1cIffKYlZ1QasfI_Ld9ATKgNc3a6-SSUshKT?eventSubmit_performAnimalSearch=exact&animalNumbers=$row[raaa]' target='_blank'>LEARN MORE</a>
+            <a href='https://zebu.redangus.org:8443/redspro/redspro/template/animalSearch%2CAnimalSearch.vm/action/animalSearch.AnimalSearchAction;jsessionid=0HGp1cIffKYlZ1QasfI_Ld9ATKgNc3a6-SSUshKT?eventSubmit_performAnimalSearch=exact&animalNumbers=4708639' target='_blank'>
+              <button>
+                LEARN MORE
+              </button>
+            </a>  
           </div>
         </div>
 
@@ -206,8 +215,9 @@
           </div>
         </div>
     </div>
+    <hr style='width:100%;text-align:left;margin: 50px 0px;height:2px;border-width:0;color:gray;background-color:gray;'>
     ";
-  }
+      }
 
       ?>
 
@@ -238,6 +248,26 @@
         });
       </script>
     </section>
+
+    <footer>
+      <div class="foot-container">
+        <div class="foot-wrapper">
+          <div class="logo-wrapper">
+            <img src="../../images/Logo-White.svg" alt="Logo">
+            &copy;Copyright <em>Esteban Munoz</em>
+          </div>
+          <div class="text-wrapper">
+            <a href="cattle.php" style="color: var(--clr-third);
+              padding-bottom: 20px;
+              display: block;">
+              View all the bulls</a>
+            <p>417-737-BEEF (2333)</p>
+            <p>SpringHillsRanch@gmail.com</p>
+            <p>P.O. Box 488, MT. Vernon, MO 65712</p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
   </main>
 
