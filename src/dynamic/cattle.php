@@ -140,7 +140,7 @@
         <div class='product-gallery'>
 
           <div class='main-img-ctn'>
-          <img src='$row[main_img]' class='bull-product' id='mainImg' width='600px' height='400px' alt='bull-product'>
+            <img src='$row[main_img]' class='bull-product' id='mainImg$row[raaa]' width='600px' height='400px' alt='bull-product'>
           </div>
 
           <!-- Small img container -->
@@ -223,30 +223,21 @@
 
       <!-- GALLERY SCRIPT -->
       <script>
-        let mainImg = document.getElementById('mainImg');
-        let smallImg = document.querySelectorAll('.small-img');
+        let galleries = document.querySelectorAll('.product-gallery');
 
-        smallImg[0].addEventListener('click', function() {
-          mainImg.src = smallImg[0].src;
-        });
+        galleries.forEach((gallery) => {
 
-        // smallImg[0].addEventListener('blur', function(){
-        //     smallImg[0].style.opacity = 1;
-        // });
+          let mainImg = gallery.querySelector('img[id^="mainImg"]');
+          let smallImages = gallery.querySelectorAll('.small-img');
 
-        smallImg[1].addEventListener('click', function() {
-          mainImg.src = smallImg[1].src;
-
-        });
-
-        smallImg[2].addEventListener('click', function() {
-          mainImg.src = smallImg[2].src;
-        });
-
-        smallImg[3].addEventListener('click', function() {
-          mainImg.src = smallImg[3].src;
+          smallImages.forEach((smallImg) => {
+            smallImg.addEventListener('click', function() {
+              mainImg.src = smallImg.src;
+            });
+          });
         });
       </script>
+
     </section>
 
     <footer>

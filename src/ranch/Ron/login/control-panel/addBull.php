@@ -25,9 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $dob = trim(($_POST['dob']));
     $username = trim($_SESSION['username']);
 
-    do{
-        if (empty($bullName) || empty($raaa) ||
-            $bullName == "") {
+    do {
+        if (
+            empty($bullName) || empty($raaa) ||
+            $bullName == ""
+        ) {
             $errorMsg = "Oops, Some fields are required.";
             break;
         }
@@ -40,14 +42,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Upload and check error for image uploading
         require('image_util.php');
 
-        if(!empty($errorImg)){
+        if (!empty($errorImg)) {
             break;
-        }
-        else{
+        } else {
             // print_r($imagesPath);
             //GET VALUES FROM ARRAY
             $arrayPaths = getValuesFromImagePath($imagesPath);
-            if($arrayPaths !== null){
+            if ($arrayPaths !== null) {
                 list($main_path, $path1, $path2, $path3) = $arrayPaths;
 
                 //INSERT VALUES INTO DB
@@ -58,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     // Error occurred while inserting data
                     $errorMsg = "Data is not Valid:" . $mysqli->connect_error;
                     break;
-                } 
+                }
 
                 $bullName = "";
                 $raaa = "";
@@ -71,17 +72,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 header("location: panel.php");
                 exit;
-            }
-            else{
+            } else {
                 $errorMsg = "Something went wrong uploading images";
                 break;
             }
-
         }
-
-    } while(false);
-
-} 
+    } while (false);
+}
 ?>
 
 
@@ -115,6 +112,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         color: green;
         padding-bottom: 10px;
     }
+
+    /* IMAGE PREVIEW   */
+    .img-preview {
+        width: 300px;
+        min-height: 100px;
+        border: 2px solid #dddddd;
+        margin-top: 10px;
+        /* DEFAULT TEXT   */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #cccccc;
+        user-select: none;
+    }
+
+    .img-preview__img {
+        display: none;
+        width: 100%;
+    }
 </style>
 
 <body>
@@ -135,94 +152,147 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 
 
-              <!-- ERROR MSG   -->
-                <?php
-                if (!empty($errorMsg)) {
-                    echo "
+            <!-- ERROR MSG   -->
+            <?php
+            if (!empty($errorMsg)) {
+                echo "
                         <div class='alert alert-warning alert-dismissible fade show' role='alert'>
                         <strong>$errorMsg</strong>
                         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                         </div>";
-                }
-                else if(!empty($errorImg)){
-                    echo "
+            } else if (!empty($errorImg)) {
+                echo "
                         <div class='alert alert-warning alert-dismissible fade show' role='alert'>
                         <strong>$errorImg</strong>
                         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                         </div>";
-                }
-                ?>
+            }
+            ?>
 
-            
-                <form action="addBull.php" method="POST" enctype="multipart/form-data" id='add_form'>
-                    <input type="hidden" name="MAX_FILE_SIZE" value="5000000">
 
-                    <div class='row mb-3'>
-                        <label class='col-sm-3 col-form-label' for='bullName'>Bull Name:</label>
-                        <div class='col-sm-6'>
-                            <input class='form-control' type='text' name='bullName' id="bullName" value="<?php echo $bullName; ?>" autofocus required>
+            <form action="addBull.php" method="POST" enctype="multipart/form-data" id='add_form'>
+                <input type="hidden" name="MAX_FILE_SIZE" value="5000000">
+
+                <div class='row mb-3'>
+                    <label class='col-sm-3 col-form-label' for='bullName'>Bull Name:</label>
+                    <div class='col-sm-6'>
+                        <input class='form-control' type='text' name='bullName' id="bullName" value="<?php echo $bullName; ?>" autofocus required>
+                    </div>
+                </div>
+
+                <div class='row mb-3'>
+                    <label class='col-sm-3 col-form-label' for='RAAA'>RAAA#:</label>
+                    <div class='col-sm-6'>
+                        <input class='form-control' id='RAAA' type='number' name='raaa' value="<?php echo $raaa; ?>" required>
+                    </div>
+                </div>
+
+                <div class='row mb-3'>
+                    <label class='col-sm-3 col-form-label' for='dob'>Date of Birth:</label>
+                    <div class='col-sm-6'>
+                        <input class='form-control' id='dob' type='date' name='dob' value="<?php echo $dob; ?>">
+                    </div>
+                </div>
+
+                <!-- MAIN IMG   -->
+                <div class='row mb-3'>
+                    <label class='col-sm-3 col-form-label' for='mainImg'>Main Image:</label>
+                    <div class='col-sm-6'>
+                        <input class='form-control showImage' id='mainImg' type='file' name='mainImg' required>
+
+                        <!-- PREVIEW IMAGE -->
+                        <div class="img-preview col-sm-6" id="imgPreview">
+                            <img src="" alt="Image Preview" class="img-preview__img">
+                            <span class="img-preview__default-text">Image Preview</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class='row mb-3'>
-                        <label class='col-sm-3 col-form-label' for='RAAA'>RAAA#:</label>
-                        <div class='col-sm-6'>
-                            <input class='form-control' id='RAAA' type='number' name='raaa' value="<?php echo $raaa; ?>" required>
+                <!-- IMG-1  -->
+                <div class='row mb-3'>
+                    <label class='col-sm-3 col-form-label' for='img1'>Image #1:</label>
+                    <div class='col-sm-6'>
+                        <input class='form-control showImage' id='img1' type='file' name='img1' required>
+                        <!-- PREVIEW IMAGE -->
+                        <div class="img-preview col-sm-6" id="imgPreview">
+                            <img src="" alt="Image Preview" class="img-preview__img">
+                            <span class="img-preview__default-text">Image Preview</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class='row mb-3'>
-                        <label class='col-sm-3 col-form-label' for='dob'>Date of Birth:</label>
-                        <div class='col-sm-6'>
-                            <input class='form-control' id='dob' type='date' name='dob' value="<?php echo $dob; ?>">
+                <!-- IMG-2   -->
+                <div class='row mb-3'>
+                    <label class='col-sm-3 col-form-label' for='img2'>Image #2:</label>
+                    <div class='col-sm-6'>
+                        <input class='form-control showImage' id='img2' type='file' name='img2' required>
+                        <!-- PREVIEW IMAGE -->
+                        <div class="img-preview col-sm-6" id="imgPreview">
+                            <img src="" alt="Image Preview" class="img-preview__img">
+                            <span class="img-preview__default-text">Image Preview</span>
                         </div>
                     </div>
+                </div>
 
-                    <!-- MAIN IMG   -->
-                    <div class='row mb-3'>
-                        <label class='col-sm-3 col-form-label' for='mainImg'>Main Image:</label>
-                        <div class='col-sm-6'>
-                            <input class='form-control' id='mainImg' type='file' name='mainImg' required>
+                <!-- IMG-3   -->
+                <div class='row mb-3'>
+                    <label class='col-sm-3 col-form-label' for='img3'>Image #3:</label>
+                    <div class='col-sm-6'>
+                        <input class='form-control showImage' id='img3' type='file' name='img3' required>
+                        <!-- PREVIEW IMAGE -->
+                        <div class="img-preview col-sm-6" id="imgPreview">
+                            <img src="" alt="Image Preview" class="img-preview__img">
+                            <span class="img-preview__default-text">Image Preview</span>
                         </div>
                     </div>
+                </div>
 
-                    <!-- IMG-1  -->
-                    <div class='row mb-3'>
-                        <label class='col-sm-3 col-form-label' for='img1'>Image #1:</label>
-                        <div class='col-sm-6'>
-                            <input class='form-control' id='img1' type='file' name='img1' required>
-                        </div>
+                <!-- SUBMIT & Cancel -->
+                <div class="row mb-3">
+                    <div class="offset-sm-3 col-sm-3 d-grid">
+                        <button type="submit" name='submit' class="btn btn-primary">Submit</button>
                     </div>
-
-                    <!-- IMG-2   -->
-                    <div class='row mb-3'>
-                        <label class='col-sm-3 col-form-label' for='img2'>Image #2 (Optional):</label>
-                        <div class='col-sm-6'>
-                            <input class='form-control' id='img2' type='file' name='img2'>
-                        </div>
+                    <div class="col-sm-3 d-grid">
+                        <a class="btn btn-outline-primary" href='panel.php' role="button">Cancel</a>
                     </div>
+                </div>
 
-                    <!-- IMG-3   -->
-                    <div class='row mb-3'>
-                        <label class='col-sm-3 col-form-label' for='img3'>Image #3 (Optional):</label>
-                        <div class='col-sm-6'>
-                            <input class='form-control' id='img3' type='file' name='img3'>
-                        </div>
-                    </div>
-
-                    <!-- SUBMIT & Cancel -->
-                    <div class="row mb-3">
-                        <div class="offset-sm-3 col-sm-3 d-grid">
-                            <button type="submit" name='submit' class="btn btn-primary">Submit</button>
-                        </div>
-                        <div class="col-sm-3 d-grid">
-                            <a class="btn btn-outline-primary" href='panel.php' role="button">Cancel</a>
-                        </div>
-                    </div>
-
-                </form>
+            </form>
         </div>
     </section>
+
+    <!-- IMG PREVIEW JS -->
+    <script>
+        const mainImg = document.querySelectorAll('.showImage');
+        const previewContainers = document.querySelectorAll('#imgPreview');
+
+        mainImg.forEach((image, index) => {
+            image.addEventListener("change", function() {
+                const file = this.files[0];
+                const previewContainer = previewContainers[index];
+                const previewImage = previewContainer.querySelector('.img-preview__img');
+                const previewDefaultText = previewContainer.querySelector('.img-preview__default-text');
+
+                if (file) {
+                    const reader = new FileReader();
+
+                    previewDefaultText.style.display = "none";
+                    previewImage.style.display = "block";
+
+                    reader.addEventListener("load", function() {
+                        previewImage.setAttribute("src", this.result);
+                    });
+                    reader.readAsDataURL(file);
+                } else {
+                    // use default css values  
+                    previewDefaultText.style.display = null;
+                    previewImage.style.display = null;
+                    previewImage.setAttribute("src", "");
+                }
+
+            });
+        });
+    </script>
 
 </body>
 
