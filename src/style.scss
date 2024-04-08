@@ -85,10 +85,16 @@ body {
 .welcome h1 {
   text-align: center;
   font-family: var(--ff-header);
-  font-size: clamp(2.5rem, 5vw, 3.2rem);
+  font-size: clamp(2rem, 5vw, 3.2rem);
   color: var(--clr-light);
   text-shadow: rgb(0, 0, 0) 1px 0 5px;
   
+}
+
+@media only screen and (max-width:720px){
+  .welcome{
+    left: 70%;
+  }
 }
 
 

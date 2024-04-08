@@ -33,6 +33,9 @@ if (isset($_GET['id'])) {
   <!--MAIN SCRIPT -->
   <script src="../js/navBar.js" defer></script>
 
+  <!--BULL CARDS SCRIPT  -->
+  <script src="../js/carousel.js" defer></script>
+
   <!-- CATTLE SCRIPT -->
   <script src="../js/cattle.js" defer></script>
 
@@ -42,7 +45,10 @@ if (isset($_GET['id'])) {
 <body>
   <style>
     .carousel-section {
-      background-image: none;
+      background-image: url(../../images/bkg-texture-solid.svg);
+      background-position: center;
+      background-size: cover;
+      padding-top: 50px;
     }
 
     .carousel-section .title-container {
@@ -127,7 +133,7 @@ if (isset($_GET['id'])) {
 
   <main>
 
-    <section class="product-ctn-1" style="padding: 80px;">
+    <section class="product-ctn-1" style="padding-top:90px;">
 
       <?php
       //CONNECT TO DATABASE
@@ -168,7 +174,7 @@ if (isset($_GET['id'])) {
             <!-- SHOW UP-SMALL SCREEN -->
         <div class='learn-smallBtn'>
           <a href='https://zebu.redangus.org:8443/redspro/redspro/template/animalSearch%2CAnimalSearch.vm/action/animalSearch.AnimalSearchAction;jsessionid=0HGp1cIffKYlZ1QasfI_Ld9ATKgNc3a6-SSUshKT?eventSubmit_performAnimalSearch=exact&animalNumbers=4708639' target='_blank'>
-            <button>
+            <button class='btn-wrapper'>
               LEARN MORE
             </button>
           </a>
@@ -226,6 +232,38 @@ if (isset($_GET['id'])) {
       }
 
       ?>
+
+      <!-- GALLERY SCRIPT -->
+      <script>
+        let galleries = document.querySelectorAll('.product-gallery');
+
+        galleries.forEach((gallery) => {
+
+          let mainImg = gallery.querySelector('img[id^="mainImg"]');
+          let smallImages = gallery.querySelectorAll('.small-img');
+          let currentSmallImg = null;
+
+
+          smallImages.forEach((smallImg) => {
+
+            smallImg.addEventListener('click', function() {
+              //Checks if there's a previously selected small image
+              if (currentSmallImg) {
+                currentSmallImg.style.opacity = "1";
+              }
+
+              //Set opacity and image on display
+              smallImg.style.opacity = "0.7";
+              mainImg.src = smallImg.src;
+
+              currentSmallImg = smallImg;
+            });
+
+            smallImg.style.opacity = "1";
+          });
+        });
+      </script>
+
       <!-- RANCHERS GUIDE -->
       <div class="rancher-guide" style="padding:20px">
         <p>Want to know more about EPD’S?

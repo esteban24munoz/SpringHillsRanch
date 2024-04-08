@@ -161,8 +161,8 @@
 
               <!-- SHOW UP-SMALL SCREEN -->
           <div class='learn-smallBtn'>
-            <a href='https://zebu.redangus.org:8443/redspro/redspro/template/animalSearch%2CAnimalSearch.vm/action/animalSearch.AnimalSearchAction;jsessionid=0HGp1cIffKYlZ1QasfI_Ld9ATKgNc3a6-SSUshKT?eventSubmit_performAnimalSearch=exact&animalNumbers=4708639' target='_blank'>
-              <button>
+            <a href='https://zebu.redangus.org:8443/redspro/redspro/template/animalSearch%2CAnimalSearch.vm/action/animalSearch.AnimalSearchAction;jsessionid=0HGp1cIffKYlZ1QasfI_Ld9ATKgNc3a6-SSUshKT?eventSubmit_performAnimalSearch=exact&animalNumbers=$row[raaa]' target='_blank'>
+              <button class='btn-wrapper'>
                 LEARN MORE
               </button>
             </a>
@@ -190,7 +190,7 @@
 
           <!-- LEARN MORE -->
           <div class='learnMore-btn'>
-            <a href='https://zebu.redangus.org:8443/redspro/redspro/template/animalSearch%2CAnimalSearch.vm/action/animalSearch.AnimalSearchAction;jsessionid=0HGp1cIffKYlZ1QasfI_Ld9ATKgNc3a6-SSUshKT?eventSubmit_performAnimalSearch=exact&animalNumbers=4708639' target='_blank'>
+            <a href='https://zebu.redangus.org:8443/redspro/redspro/template/animalSearch%2CAnimalSearch.vm/action/animalSearch.AnimalSearchAction;jsessionid=0HGp1cIffKYlZ1QasfI_Ld9ATKgNc3a6-SSUshKT?eventSubmit_performAnimalSearch=exact&animalNumbers=$row[raaa]' target='_blank'>
               <button>
                 LEARN MORE
               </button>
@@ -229,11 +229,25 @@
 
           let mainImg = gallery.querySelector('img[id^="mainImg"]');
           let smallImages = gallery.querySelectorAll('.small-img');
+          let currentSmallImg = null;
+
 
           smallImages.forEach((smallImg) => {
+            
             smallImg.addEventListener('click', function() {
+              //Checks if there's a previously selected small image
+              if(currentSmallImg){
+                currentSmallImg.style.opacity = "1";
+              }
+
+              //Set opacity and image on display
+              smallImg.style.opacity = "0.7";
               mainImg.src = smallImg.src;
+
+              currentSmallImg = smallImg;
             });
+
+            smallImg.style.opacity = "1";
           });
         });
       </script>
