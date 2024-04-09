@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
         $fileExt = explode('.', $fileName);
         $fileActualExt = strtolower(end($fileExt));
 
-        $allowed = array('jpg', 'jpeg', 'png');
+        $allowed = array('jpg', 'jpeg', 'png', 'heic');
 
         // This is the directory the uploaded images will be placed in.
         // It must have priviledges sufficient for the web server to write to it
@@ -57,7 +57,7 @@ if(isset($_POST['submit'])){
             }
         }
         else{
-            $errorImg = "File extension not allowed.";
+            $errorImg = "File extension not allowed, only jpg, jpeg, png, heic";
         }
     }
 

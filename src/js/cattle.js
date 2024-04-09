@@ -1,11 +1,14 @@
 //FOR SALE BTN
-let showPhoneNumber = document.querySelector(".forSale-btn");
-let phoneNumber = document.querySelector(".phone-number");
-let phoneIcon = document.querySelector(".phone-icon");
-let showPhoneIcon = document.querySelector("#hidePhoneIcon");
+let showPhoneNumber = document.querySelectorAll(".forSale-btn");
+let phoneNumber = document.querySelectorAll(".phone-number");
+let phoneIcon = document.querySelectorAll(".phone-icon");
+let showPhoneIcon = document.querySelectorAll("#hidePhoneIcon");
 
-showPhoneNumber.addEventListener('mouseover', mouseOver);
-showPhoneNumber.addEventListener('mouseout', mouseOut);
+    showPhoneNumber.forEach((btn) => {
+
+        btn.addEventListener('mouseover', mouseOver);
+        showPhoneNumber.addEventListener('mouseout', mouseOut);
+    });
 
 //MOUSE OVER
 function mouseOver(){
