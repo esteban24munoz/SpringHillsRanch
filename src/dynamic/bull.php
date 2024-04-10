@@ -77,12 +77,12 @@ if (isset($_GET['id'])) {
       </button>
 
       <div class="info-container">
-        <img src="../../images/placeholder.svg" width="70px" alt="placeholder" />
+        <img src="../../images/placeholder.svg" width="70px" alt="placeholder" oncontextmenu='return false'/>
         <div class="info" style="padding-right: 30px;">
           <p style="float: none">P.O BOX 488<br>
             MT. Vernon, MO 65712</p>
         </div>
-        <img src="../../images/call.svg" width="70px" alt="placeholder" />
+        <img src="../../images/call.svg" width="70px" alt="placeholder" oncontextmenu='return false'/>
         <div class="info">
           <p style="float: none">417-737-BEEF (2333)</p>
 
@@ -152,22 +152,22 @@ if (isset($_GET['id'])) {
       <div class='product-gallery'>
 
         <div class='main-img-ctn'>
-        <img src='$row[main_img]' class='bull-product' id='mainImg' width='600px' height='400px' alt='bull-product'>
+        <img src='$row[main_img]' class='bull-product' id='mainImg' width='600px' height='400px' alt='bull-product' oncontextmenu='return false'>
         </div>
 
         <!-- Small img container -->
         <div class='small-img-ctn'>
           <div class='small-img-col'>
-            <img src='$row[main_img]' class='small-img' alt='bull-product'>
+            <img src='$row[main_img]' class='small-img' alt='bull-product' oncontextmenu='return false'>
           </div>
           <div class='small-img-col'>
-            <img src='$row[img_1]' class='small-img' alt='bull-product'>
+            <img src='$row[img_1]' class='small-img' alt='bull-product' oncontextmenu='return false'>
           </div>
           <div class='small-img-col'>
-            <img src='$row[img_2]' class='small-img' alt='bull-product'>
+            <img src='$row[img_2]' class='small-img' alt='bull-product' oncontextmenu='return false'>
           </div>
           <div class='small-img-col'>
-            <img src=$row[img_3] class='small-img' alt='bull-product'>
+            <img src=$row[img_3] class='small-img' alt='bull-product' oncontextmenu='return false'>
           </div>
         </div>
 
@@ -255,6 +255,7 @@ if (isset($_GET['id'])) {
               //Set opacity and image on display
               smallImg.style.opacity = "0.7";
               mainImg.src = smallImg.src;
+              smallImg.style.transition = "opacity 1s"
 
               currentSmallImg = smallImg;
             });
@@ -297,7 +298,7 @@ if (isset($_GET['id'])) {
               echo "
           <li class='card'>
             <div class='photo'>
-              <img src='$row[main_img]' alt='bull' draggable='false' width='400px' height='300px'>
+              <img src='$row[main_img]' alt='bull' draggable='false' width='400px' height='300px' oncontextmenu='return false'>
             </div>
             <h2 style='user-select: none'>$row[bullName]</h2>
 
@@ -333,7 +334,7 @@ if (isset($_GET['id'])) {
     <div class="foot-container">
       <div class="foot-wrapper">
         <div class="logo-wrapper">
-          <img src="../../images/Logo-White.svg" alt="Logo">
+          <img src="../../images/Logo-White.svg" alt="Logo" oncontextmenu='return false'>
           &copy;Copyright <em>Esteban Munoz</em>
         </div>
         <div class="text-wrapper">

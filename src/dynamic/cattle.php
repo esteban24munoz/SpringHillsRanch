@@ -46,12 +46,12 @@
       </button>
 
       <div class="info-container">
-        <img src="../../images/placeholder.svg" width="70px" alt="placeholder" />
+        <img src="../../images/placeholder.svg" width="70px" alt="placeholder" oncontextmenu='return false'/>
         <div class="info" style="padding-right: 30px;">
           <p style="float: none">P.O BOX 488<br>
             MT. Vernon, MO 65712</p>
         </div>
-        <img src="../../images/call.svg" width="70px" alt="placeholder" />
+        <img src="../../images/call.svg" width="70px" alt="placeholder" oncontextmenu='return false'/>
         <div class="info">
           <p style="float: none">417-737-BEEF (2333)</p>
 
@@ -104,7 +104,7 @@
       <div class="welcome">
         <h1>The Best<br>of Our Cattle</h1>
       </div>
-      <img src='../../images/cattle-header.svg' class="farm-img" alt='farmer-bull'>
+      <img src='../../images/cattle-header.svg' class="farm-img" alt='farmer-bull' oncontextmenu='return false'>
     </div>
 
   </header>
@@ -140,22 +140,22 @@
         <div class='product-gallery'>
 
           <div class='main-img-ctn'>
-            <img src='$row[main_img]' class='bull-product' id='mainImg$row[raaa]' width='600px' height='400px' alt='bull-product'>
+            <img src='$row[main_img]' class='bull-product' id='mainImg$row[raaa]' width='600px' height='400px' alt='bull-product' oncontextmenu='return false'>
           </div>
 
           <!-- Small img container -->
           <div class='small-img-ctn'>
             <div class='small-img-col'>
-              <img src='$row[main_img]' class='small-img' alt='bull-product'>
+              <img src='$row[main_img]' class='small-img' alt='bull-product' oncontextmenu='return false'>
             </div>
             <div class='small-img-col'>
-              <img src='$row[img_1]' class='small-img' alt='bull-product'>
+              <img src='$row[img_1]' class='small-img' alt='bull-product' oncontextmenu='return false'>
             </div>
             <div class='small-img-col'>
-              <img src='$row[img_2]' class='small-img' alt='bull-product'>
+              <img src='$row[img_2]' class='small-img' alt='bull-product' oncontextmenu='return false'>
             </div>
             <div class='small-img-col'>
-              <img src=$row[img_3] class='small-img' alt='bull-product'>
+              <img src=$row[img_3] class='small-img' alt='bull-product' oncontextmenu='return false'>
             </div>
           </div>
 
@@ -231,7 +231,6 @@
           let smallImages = gallery.querySelectorAll('.small-img');
           let currentSmallImg = null;
 
-
           smallImages.forEach((smallImg) => {
             
             smallImg.addEventListener('click', function() {
@@ -241,13 +240,17 @@
               }
 
               //Set opacity and image on display
+              // Add smooth transition effect
               smallImg.style.opacity = "0.7";
               mainImg.src = smallImg.src;
+              smallImg.style.transition = "opacity 1s";
 
               currentSmallImg = smallImg;
             });
 
             smallImg.style.opacity = "1";
+            //smooth transition
+            mainImg.style.transition = "opacity 1s";
           });
         });
       </script>
@@ -258,7 +261,7 @@
       <div class="foot-container">
         <div class="foot-wrapper">
           <div class="logo-wrapper">
-            <img src="../../images/Logo-White.svg" alt="Logo">
+            <img src="../../images/Logo-White.svg" alt="Logo" oncontextmenu='return false'>
             &copy;Copyright <em>Esteban Munoz</em>
           </div>
           <div class="text-wrapper">

@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/8f5cf0b518.js" crossorigin="anonymous" defer></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 
     <!--MENU  -->
     <script src="../js/script.js" defer></script>
@@ -41,12 +41,20 @@
             .header-container {
                 height: 90dvh;
                 position: relative;
+                margin-bottom: 80px;
             }
 
             .farm-img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+            }
+
+            @media only screen and (max-width:425px) {
+                .header-container {
+                height: auto;
+                margin-bottom: 10px;
+                }
             }
         </style>
 
@@ -64,12 +72,12 @@
             </button>
 
             <div class="info-container">
-                <img src="../../images/placeholder.svg" width="70px" alt="placeholder" />
+                <img src="../../images/placeholder.svg" width="70px" alt="placeholder" oncontextmenu='return false'/>
                 <div class="info" style="padding-right: 30px;">
                     <p style="float: none">P.O BOX 488<br>
                         MT. Vernon, MO 65712</p>
                 </div>
-                <img src="../../images/call.svg" width="70px" alt="placeholder" />
+                <img src="../../images/call.svg" width="70px" alt="placeholder" oncontextmenu='return false'/>
                 <div class="info">
                     <p style="float: none">417-737-BEEF (2333)</p>
                 </div>
@@ -115,11 +123,11 @@
         </div>
 
         <!-- image -->
-        <div class='header-container' style="margin-bottom: 80px;">
-            <div class="welcome" style="left: 70%;">
+        <div class='header-container'>
+            <div class="welcome">
                 <h1>Let's get<br>in touch!</h1>
             </div>
-            <img src='../../images/contactUs-header.svg' class="farm-img" alt='farmer-bull'>
+            <img src='../../images/contactUs-header.svg' class="farm-img" alt='farmer-bull' oncontextmenu='return false'>
         </div>
 
     </header>
@@ -156,8 +164,8 @@
                     </form>
                 </div>
                 <div class="image-wrapper">
-                    <img src="../../images/farm-pic-1.svg" alt="farm picture" />
-                    <img src="../../images/farm-pic-2.svg" alt="farm picture" />
+                    <img src="../../images/farm-pic-1.svg" alt="farm picture" oncontextmenu='return false'/>
+                    <img src="../../images/farm-pic-2.svg" alt="farm picture" oncontextmenu='return false'/>
                 </div>
             </div>
         </section>
@@ -167,11 +175,11 @@
             <div class="foot-container">
                 <div class="foot-wrapper">
                     <div class="logo-wrapper">
-                        <img src="../../images/Logo-White.svg" alt="Logo">
+                        <img src="../../images/Logo-White.svg" alt="Logo" oncontextmenu='return false'>
                         &copy;Copyright <em>Esteban Munoz</em>
                     </div>
                     <div class="text-wrapper">
-                        <a href="cattle.php" style="color: var(--clr-third);
+                        <a href="../dynamic/cattle.php" style="color: var(--clr-third);
               padding-bottom: 20px;
               display: block;">
                             View all the bulls</a>

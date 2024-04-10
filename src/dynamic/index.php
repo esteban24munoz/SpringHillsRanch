@@ -46,12 +46,12 @@
         </button>
 
         <div class="info-container">
-          <img src="../../images/placeholder.svg" width="70px" alt="placeholder"/>
+          <img src="../../images/placeholder.svg" width="70px" alt="placeholder" oncontextmenu="return false"/>
           <div class="info" style="padding-right: 30px;">
             <p style="float: none;">P.O BOX 488<br>
             MT. Vernon, MO 65712</p>
           </div>
-          <img src="../../images/call.svg" width="70px" alt="placeholder"/>
+          <img src="../../images/call.svg" width="70px" alt="placeholder" oncontextmenu="return false"/>
           <div class="info">
             <p style="float: none">417-737-BEEF (2333)</p>
           </div>
@@ -103,7 +103,7 @@
       <div class="welcome">
         <h1 class="">Welcome to Our <br>Ranch</h1>
       </div>
-      <video class="farm-video" autoplay muted loop>
+      <video class="farm-video" autoplay muted loop oncontextmenu="return false">
         <source src="../../video/Ranch-Video.mp4" type="video/mp4" />
       </video>
     </div>
@@ -137,19 +137,22 @@
               echo "
           <li class='card'>
             <div class='photo'>
-              <img src='$row[main_img]' alt='bull' draggable='false' width='400px' height='300px'>
+              <img src='$row[main_img]' alt='bull' draggable='false' width='400px' height='300px' oncontextmenu='return false'>
             </div>
             <h2 style='user-select: none'>$row[bullName]</h2>
 
             <div class='raaaInfo'>
-              <p>RAAA#: $row[raaa]  
+              <p>RAAA#: $row[raaa]
+              <span>
               <lord-icon
               src='https://cdn.lordicon.com/oqdmuxru.json'
               trigger='hover'
               colors='primary:#ffffff'
               style='width:25px;height:25px'>
               </lord-icon>
+            </span>
               </p>
+            
             </div>   
             <a href='bull.php?id=$row[id]'> 
             <button class='readMore-btn'>
@@ -176,14 +179,14 @@
           </p>
         </div>
         <div class="image">
-          <img src="../../images/bull-nbg.svg" alt="bull">
+          <img src="../../images/bull-nbg.svg" alt="bull" oncontextmenu='return false'>
         </div>
       </div>
     </section>
     <!-- MESSAGE -->
     <section class="reveal">
       <div class="img-container">
-        <img src="../../images/bullgrass.jpg" alt="bull">
+        <img src="../../images/bullgrass.jpg" alt="bull" oncontextmenu='return false'>
         <div class="message">
           <h2>Grown on<br>
             Fescue Grass</h2>
@@ -194,7 +197,7 @@
     <section class="farmer-bkg">
       <div class="farmer-container reveal">
         <div class="image">
-          <img src="../../images/donna&ron.jpeg" alt="farmer-picture">
+          <img src="../../images/donna&ron.jpeg" alt="farmer-picture" oncontextmenu='return false'>
         </div>
         <div class="text-wrapper">
           <h2>Ron & Donna <br>McNaughton</h2>
@@ -233,8 +236,8 @@
       </form>
     </div>
     <div class="image-wrapper">
-      <img src="../../images/farm-pic-1.svg" alt="farm picture" />
-      <img src="../../images/farm-pic-2.svg" alt="farm picture" />
+      <img src="../../images/farm-pic-1.svg" alt="farm picture" oncontextmenu='return false'/>
+      <img src="../../images/farm-pic-2.svg" alt="farm picture" oncontextmenu='return false'/>
     </div>
   </div>
 </section>
@@ -244,7 +247,7 @@
         <div class="foot-container">
           <div class="foot-wrapper">
             <div class="logo-wrapper">
-              <img src="../../images/Logo-White.svg" alt="Logo">
+              <img src="../../images/Logo-White.svg" alt="Logo" oncontextmenu='return false'>
               &copy;Copyright <em>Esteban Munoz</em>
             </div>
             <div class="text-wrapper">
