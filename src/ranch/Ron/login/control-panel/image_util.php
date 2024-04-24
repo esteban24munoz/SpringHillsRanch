@@ -12,6 +12,11 @@ if(isset($_POST['submit'])){
     );
 
     // print_r($file);
+    // Initialize $imagesPath array
+    // $imagesPath = array();
+    // Define default image path
+    $defaultImagePath = 'default-image.jpg';
+
 
     foreach($file as $key => $value){
         $fileName = $_FILES[$key]['name'];
@@ -32,10 +37,15 @@ if(isset($_POST['submit'])){
         if (!is_writeable($upload_directory_full))
         echo "The directory $upload_directory_full is not writeable.\n";
 
+        // If the file name is empty, it means no file was uploaded or
+        if(empty($fileName)){
+
+        //GET IMG
+        $imagesPath[] = $upload_dir. '/'. $defaultImagePath;
+  
+        }
         //if ext is inside the array
-        if(in_array($fileActualExt, $allowed)){
-            //if no more errors
-            if($fileError === 0){
+        else if(in_array($fileActualExt, $allowed)){
                 //check size of File
                 if($fileSize < 10000000){
 
@@ -51,10 +61,6 @@ if(isset($_POST['submit'])){
                 else{
                     $errorImg = "Your file is too big!";
                 }
-            }
-            else{
-                $errorImg =  "There was an error uploading your file.";
-            }
         }
         else{
             $errorImg = "File extension not allowed, only jpg, jpeg, png, heic";

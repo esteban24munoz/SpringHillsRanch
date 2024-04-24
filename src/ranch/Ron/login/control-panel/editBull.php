@@ -59,7 +59,7 @@ else{
         }
 
         $sql = "UPDATE bulls_db " .
-       "SET bullName = '$bullName', raaa = '$raaa', dob = '$dob' " . 
+       "SET bullName = '$bullName', raaa = $raaa, dob = '$dob' " . 
        "WHERE id = $id";
         $result = $mysqli->query($sql);
 
@@ -121,7 +121,9 @@ else{
         <!-- Navbar -->
         <div class="nav-container">
             <div class="img-box">
-                <img src="../../../../../images/Logo-Black.svg" alt="Logo" />
+                <a href="panel.php">
+                    <img src="../../../../../images/Logo-Black.svg" alt="Logo" />
+                </a>
             </div>
         </div>
     </header>

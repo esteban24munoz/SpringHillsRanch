@@ -4,6 +4,8 @@
 <head>
   <meta charset='UTF-8'>
   <meta name='viewport' content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
   <title>Cattle</title>
   <link rel="icon" href="../../images/FavIcon-Hills.svg" />
 
@@ -37,7 +39,7 @@
     <div class="nav-container">
       <div class="img-box">
         <a href="index.php">
-          <img src="../../images/Logo-Black.svg" alt="Logo" />
+          <img src="../../images/Logo-Black.svg" alt="Logo" draggable='false'/>
         </a>
       </div>
 
@@ -46,12 +48,12 @@
       </button>
 
       <div class="info-container">
-        <img src="../../images/placeholder.svg" width="70px" alt="placeholder" oncontextmenu='return false'/>
+        <img src="../../images/placeholder.svg" width="70px" alt="placeholder" oncontextmenu='return false' draggable='false'/>
         <div class="info" style="padding-right: 30px;">
           <p style="float: none">P.O BOX 488<br>
             MT. Vernon, MO 65712</p>
         </div>
-        <img src="../../images/call.svg" width="70px" alt="placeholder" oncontextmenu='return false'/>
+        <img src="../../images/call.svg" width="70px" alt="placeholder" oncontextmenu='return false' draggable='false'/>
         <div class="info">
           <p style="float: none">417-737-BEEF (2333)</p>
 
@@ -62,49 +64,69 @@
     <nav class="mobile-nav">
       <ul class="nav_list">
         <li class="nav_item">
-          <a href="index.php" id="event" class="nav_link">Home</a>
+          <a href="index.php" id="anchorColor" class="nav_link">Home</a>
         </li>
         <li class="nav_item">
-          <a href="../static/aboutUs.html" id="aboutUs" class="nav_link">About Us</a>
+          <a href="aboutUs.php" id="anchorColor" class="nav_link">About Us</a>
         </li>
         <li class="nav_item">
-          <a href="cattle.php" id="pastors" class="nav_link">Cattle</a>
+          <a href="cattle.php" id="anchorColor" class="nav_link">Cattle</a>
         </li>
         <li class="nav_item">
-          <a href="../static/contact.html" class="nav_link">Contact</a>
+          <a href="contactUs.php" class="nav_link" id="anchorColor">Contact</a>
         </li>
       </ul>
     </nav>
-
-
 
     <!-- Navbar LINKS -->
     <div class="nav-background">
       <div class="nav-links">
         <ul class="nav_list">
           <li class="nav_item">
-            <a href="index.php" id="event" class="nav_link">Home</a>
+            <a href="index.php" id="home" class="nav_link">Home</a>
           </li>
           <li class="nav_item">
-            <a href="../static/aboutUs.html" id="aboutUs" class="nav_link">About Us</a>
+            <a href="aboutUs.php" id="aboutUs" class="nav_link">About Us</a>
           </li>
           <li class="nav_item">
-            <a href="cattle.php" id="pastors" class="nav_link">Cattle</a>
+            <a href="cattle.php" id="cattle" class="nav_link">Cattle</a>
           </li>
           <li class="nav_item">
-            <a href="../static/contact.html" class="nav_link">Contact</a>
+            <a href="contactUs.php" id="contact" class="nav_link">Contact</a>
           </li>
         </ul>
       </div>
     </div>
-    </div>
+
+    <script>
+      const homeLink = document.getElementById('cattle');
+      const navLinks = document.querySelectorAll('.nav_link');
+
+      homeLink.style.color = '#d1b480';
+
+      navLinks.forEach(link => {
+        link.addEventListener('mouseover', () => {
+          homeLink.style.color = 'white';
+          link.style.transition = 'color 0.3s ease';
+          link.style.color = '#d1b480';
+        });
+
+        link.addEventListener('mouseout', () => {
+          homeLink.style.color = '#d1b480';
+          link.style.transition = 'color 0.3s ease';
+          link.style.color = '';
+        });
+      });
+    </script>
+
+
 
     <!-- Head Img -->
     <div class='header-container'>
       <div class="welcome">
         <h1>The Best<br>of Our Cattle</h1>
       </div>
-      <img src='../../images/cattle-header.svg' class="farm-img" alt='farmer-bull' oncontextmenu='return false'>
+      <img src='../../images/cattle-header.svg' draggable='false' draggable='false'  class="farm-img" alt='farmer-bull' oncontextmenu='return false'>
     </div>
 
   </header>
@@ -120,10 +142,9 @@
     <section class="product-ctn-1">
 
       <?php
+      $count = 0;
 
       //CONNECT TO DATABASE
-
-
       $mysqli = new mysqli("localhost", "emunoz1", "H01761792", "emunoz1");
 
       $sql = "SELECT * FROM bulls_db";
@@ -132,30 +153,36 @@
 
       while ($row = $result->fetch_assoc()) {
 
+        // Increment the counter
+        $count++;
+
+        // Determine odd/even class based on counter
+        $class = ($count % 2 == 0) ? 'even' : 'odd';
+
 
         echo "
     <!-- BULLS IN SALE -->
-    <div class='bull-product-1'>
+    <div class='bull-product-1 $class'>
         <!-- eCommerce gallery -->
         <div class='product-gallery'>
 
           <div class='main-img-ctn'>
-            <img src='$row[main_img]' class='bull-product' id='mainImg$row[raaa]' width='600px' height='400px' alt='bull-product' oncontextmenu='return false'>
+            <img src='$row[main_img]' class='bull-product' id='mainImg$row[raaa]' width='600px' height='400px' alt='bull-product' draggable='false' oncontextmenu='return false'>
           </div>
 
           <!-- Small img container -->
           <div class='small-img-ctn'>
             <div class='small-img-col'>
-              <img src='$row[main_img]' class='small-img' alt='bull-product' oncontextmenu='return false'>
+              <img src='$row[main_img]' draggable='false' class='small-img' alt='bull-product' oncontextmenu='return false'>
             </div>
             <div class='small-img-col'>
-              <img src='$row[img_1]' class='small-img' alt='bull-product' oncontextmenu='return false'>
+              <img src='$row[img_1]' class='small-img' draggable='false' alt='bull-product' oncontextmenu='return false'>
             </div>
             <div class='small-img-col'>
-              <img src='$row[img_2]' class='small-img' alt='bull-product' oncontextmenu='return false'>
+              <img src='$row[img_2]' class='small-img' draggable='false' alt='bull-product' oncontextmenu='return false'>
             </div>
             <div class='small-img-col'>
-              <img src=$row[img_3] class='small-img' alt='bull-product' oncontextmenu='return false'>
+              <img src=$row[img_3] class='small-img' draggable='false' alt='bull-product' oncontextmenu='return false'>
             </div>
           </div>
 
@@ -176,7 +203,7 @@
           <h4 class='dob'>DOB: $row[dob]</h4>
 
           <!-- FOR SALE -->
-          <div class='forSale-btn'>
+          <div class='forSale-btn' id='forSaleId'>
             <h5 class='phone-number'>FOR SALE</h5>
             <p class='phone-icon'>$ Call for Pricing</p>
             <lord-icon
@@ -232,25 +259,24 @@
           let currentSmallImg = null;
 
           smallImages.forEach((smallImg) => {
-            
+
             smallImg.addEventListener('click', function() {
               //Checks if there's a previously selected small image
-              if(currentSmallImg){
+              if (currentSmallImg) {
                 currentSmallImg.style.opacity = "1";
               }
 
               //Set opacity and image on display
               // Add smooth transition effect
               smallImg.style.opacity = "0.7";
-              mainImg.src = smallImg.src;
-              smallImg.style.transition = "opacity 1s";
 
+              mainImg.src = smallImg.src;
               currentSmallImg = smallImg;
+              smallImg.style.transition = "opacity 1s";
             });
 
             smallImg.style.opacity = "1";
-            //smooth transition
-            mainImg.style.transition = "opacity 1s";
+
           });
         });
       </script>
@@ -261,7 +287,7 @@
       <div class="foot-container">
         <div class="foot-wrapper">
           <div class="logo-wrapper">
-            <img src="../../images/Logo-White.svg" alt="Logo" oncontextmenu='return false'>
+            <img src="../../images/Logo-White.svg" alt="Logo" oncontextmenu='return false' draggable='false'>
             &copy;Copyright <em>Esteban Munoz</em>
           </div>
           <div class="text-wrapper">

@@ -47,7 +47,6 @@ if (!isset($_SESSION['username'])) {
         }
 
         .welcome h1 {
-            padding-bottom: 5px;
             font-size: clamp(1.5rem, 3vw, 3rem);
             font-family: "Roboto Serif", serif;
             color: var(--clr-light);
@@ -69,7 +68,7 @@ if (!isset($_SESSION['username'])) {
             width: 100%;
         }
 
-        
+
         /* TABLE OVERRIDE    */
         .table>:not(caption)>*>* {
             padding: 1.5rem 0.5rem;
@@ -82,7 +81,9 @@ if (!isset($_SESSION['username'])) {
         <!-- Navbar -->
         <div class="nav-container">
             <div class="img-box">
-                <img src="../../../../../images/Logo-Black.svg" alt="Logo" />
+                <a href="panel.php">
+                    <img src="../../../../../images/Logo-Black.svg" alt="Logo" />
+                </a>
             </div>
         </div>
     </header>
@@ -92,7 +93,7 @@ if (!isset($_SESSION['username'])) {
         <div class="welcome">
             <div class="log-out">
                 <h1>Welcome Mr. Ron!</h1>
-                <a href="logout.php" style="color:black">Log out</a>
+                <a href="logout.php" style="font-weight: 500;color: black;font-size: clamp(1rem, 3vw, 1.2rem);">Log out</a>
             </div>
             <img src="../../../../../images/panel.svg" alt="bull-img" />
         </div>
@@ -107,8 +108,6 @@ if (!isset($_SESSION['username'])) {
 
                 <!-- SUCCESS MSG   -->
                 <?php
-
-        
                 if (isset($_SESSION['success']) && $_SESSION['cancel'] != true) {
                     echo "
                         <div class='row mb-3'>
@@ -125,35 +124,35 @@ if (!isset($_SESSION['username'])) {
                     unset($_SESSION['cancel']);
                 }
                 ?>
-                
-                <table class="table pt-9">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>RAAA#</th>
-                            <th>DOB</th>
-                            <th>Created At</th>                            
-                            <th style='color:red';>ACTION</th>                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $connection = new mysqli("localhost", "emunoz1", "H01761792", "emunoz1");
+                <div style='overflow-x:auto'>
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>RAAA#</th>
+                                <th>DOB</th>
+                                <th>Created At</th>
+                                <th style='color:red' ;>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $connection = new mysqli("localhost", "emunoz1", "H01761792", "emunoz1");
 
-                        if($connection->connect_error){
-                            die("Connection failed: " . $connection->connect_error);
-                        }
-                        
-                        //read all row from database table
-                        $sql = "SELECT * FROM bulls_db";
-                        $result = $connection->query($sql);
+                            if ($connection->connect_error) {
+                                die("Connection failed: " . $connection->connect_error);
+                            }
 
-                        if(!$result){
-                            die("Invalid Query: " . $connection->connect_error);
-                        }
-                        while($row = $result->fetch_assoc()) {
-                            echo "
+                            //read all row from database table
+                            $sql = "SELECT * FROM bulls_db";
+                            $result = $connection->query($sql);
+
+                            if (!$result) {
+                                die("Invalid Query: " . $connection->connect_error);
+                            }
+                            while ($row = $result->fetch_assoc()) {
+                                echo "
                             <tr>
                             <td>$row[id]</td>
                             <td>$row[bullName]</td>
@@ -167,31 +166,31 @@ if (!isset($_SESSION['username'])) {
                             </td>
                         </tr>
                             ";
-                        }
-                        ?>
+                            }
+                            ?>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <script>
                 let confirmDelete = document.getElementById('confirmDelete').addEventListener('click', function(e) {
-                                        
+
                     swal({
-                        title: "Are you sure?",
-                        text: "This form will be submitted",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                    .then(function (isOkay) {
-                        if (isOkay) {
-                            alert("Are you sure?");
-                        }
-                    });
+                            title: "Are you sure?",
+                            text: "This form will be submitted",
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
+                        })
+                        .then(function(isOkay) {
+                            if (isOkay) {
+                                alert("Are you sure?");
+                            }
+                        });
                     return false;
                 });
-
             </script>
         </section>
 

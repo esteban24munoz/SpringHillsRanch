@@ -140,10 +140,10 @@ body {
   padding: 15px;
 }
 
-.nav-links ul li a:hover {
-  cursor: pointer;
-  color: var(--clr-third);
-}
+// .nav-links ul li a:hover {
+//   cursor: pointer;
+//   color: var(--clr-third);
+// }
 
 .nav-links ul li a {
   text-decoration: none;
@@ -282,7 +282,7 @@ body {
 .carousel-section{
   display: flex;
   flex-direction: column;
-  max-height: 750px;
+  max-height: 620px;
   background: linear-gradient(180deg, #6b361d 0%, rgba(151, 95, 45, 0.81) 100%);
   background-image: url('../../images/icon-bkg-1.png');
 }
@@ -291,7 +291,7 @@ body {
   display: flex;
   flex-direction: column;
   background: linear-gradient(180deg, #6b361d 0%, rgba(151, 95, 45, 0.81) 100%);
-  min-height: 400px;
+  max-height: 620px;
   text-align: center;
   padding-top: 70px;
 }
@@ -334,6 +334,7 @@ body {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  padding-left: 20px;
 }
 
 .wrapper .carousel{
@@ -345,6 +346,13 @@ body {
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: 0;
+}
+
+@media only screen and (min-width: 425px){
+  .wrapper {
+    padding-left: 0;
+  }
+  
 }
 
 .carousel::-webkit-scrollbar{
@@ -394,7 +402,6 @@ body {
 
 .card .photo img{
   width: 100%;
-  height: auto;
   object-fit: cover;
   border-radius: 2%;
   cursor: pointer;

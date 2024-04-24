@@ -1,116 +1,212 @@
+<?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
+
+  // Include PHPMailer classes
+  require 'phpmailer/phpmailer/src/Exception.php';
+  require 'phpmailer/phpmailer/src/PHPMailer.php';
+  require 'phpmailer/phpmailer/src/SMTP.php';
+
+  try {
+    // Sanitize values
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $subject = htmlspecialchars($_POST['subject']);
+    $message = htmlspecialchars($_POST['message']);
+    $emailSent = "";
+
+    $mail = new PHPMailer(true);
+
+    //Server settings
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'munozelie24@gmail.com';
+    $mail->Password   = 'olazayadcxaipiuk';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Port       = 465;
+
+    //Recipients
+    $mail->setFrom('munozelie24@gmail.com', $name);
+    $mail->addAddress('munozelie24@gmail.com');
+    $mail->addReplyTo($email, $name);
+
+    //Content
+    $mail->isHTML(true);
+    $mail->Subject = $subject;
+    $mail->Body    = $message;
+
+    // Success sent message alert
+    if ($mail->send()) {
+      $emailSent = "Email has been sent!";
+    } else {
+      echo "Unable to send email :(";
+    }
+  } catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+  }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spring Hills Ranch</title>
-    <link rel="icon" href="../../images/FavIcon-Hills.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;1,8..144,300;1,8..144,400;1,8..144,500&family=Roboto:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
 
-    <!-- FONT AWESOME -->
-    <script src="https://kit.fontawesome.com/8f5cf0b518.js" crossorigin="anonymous" defer></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no">
+  <title>Spring Hills Ranch</title>
+  <link rel="icon" href="../../images/FavIcon-Hills.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;1,8..144,300;1,8..144,400;1,8..144,500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
 
-    <!-- LORDICON -->
-    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  <!-- FONT AWESOME -->
+  <script src="https://kit.fontawesome.com/8f5cf0b518.js" crossorigin="anonymous" defer></script>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css" />
+  <!-- LORDICON -->
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
 
-    <!--NAVBAR SCRIPT -->
-    <script src="../js/navBar.js" defer></script>
-      
-    <!--BULL CARDS SCRIPT  -->
-    <script src="../js/carousel.js" defer></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
 
-    <!--INDEX SCRIPT  -->
-    <script src="../js/index.js" defer></script>
-    
-  </head>
-  <body>
-    <header>
-      <!-- Navbar -->
-    
-      <div class="nav-container">
-        <div class="img-box">
-          <img src="../../images/Logo-Black.svg" alt="Logo"/>
-        </div>
+  <!--NAVBAR SCRIPT -->
+  <script src="../js/navBar.js" defer></script>
 
-        <button class="hamburger">
-          <div class="bar"></div>
-        </button>
+  <!--BULL CARDS SCRIPT  -->
+  <script src="../js/carousel.js" defer></script>
 
-        <div class="info-container">
-          <img src="../../images/placeholder.svg" width="70px" alt="placeholder" oncontextmenu="return false"/>
-          <div class="info" style="padding-right: 30px;">
-            <p style="float: none;">P.O BOX 488<br>
-            MT. Vernon, MO 65712</p>
-          </div>
-          <img src="../../images/call.svg" width="70px" alt="placeholder" oncontextmenu="return false"/>
-          <div class="info">
-            <p style="float: none">417-737-BEEF (2333)</p>
-          </div>
-        </div>
+  <!--INDEX SCRIPT  -->
+  <script src="../js/index.js" defer></script>
+
+  <style>
+    #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background-color: #3e1309;
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 4px;
+    }
+
+    #myBtn:hover {
+      background-color: #555;
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+
+    <!-- NAVBAR -->
+    <div class='nav-container'>
+      <div class='img-box'>
+        <img src='../../images/Logo-Black.svg' alt='Logo' draggable="false" draggable="false"/>
       </div>
-      <!-- Mobile Navbar -->
-      <nav class="mobile-nav">
-        <ul class="nav_list">
-          <li class="nav_item">
-            <a href="index.php" id="linkEvent" class="nav_link">Home</a>
-          </li>
-          <li class="nav_item">
-            <a href="../static/aboutUs.html" id="linkEvent" class="nav_link">About Us</a>
-          </li>
-          <li class="nav_item">
-            <a href="cattle.php" id="linkEvent" class="nav_link">Cattle</a>
-          </li>
-          <li class="nav_item">
-            <a href="../static/contact.html" id="linkEvent" class="nav_link">Contact</a>
-          </li>
-        </ul>
-      </nav>
 
+      <button class='hamburger'>
+        <div class='bar'></div>
+      </button>
 
-       
-      <!-- Navbar LINKS -->
-      <div class="nav-background">
-        <div class="nav-links">
-          <ul class="nav_list">
-            <li class="nav_item">
-              <a href="index.php" id="event" class="nav_link">Home</a>
-            </li>
-            <li class="nav_item">
-              <a href="../static/aboutUs.html" id="aboutUs" class="nav_link">About Us</a>
-            </li>
-            <li class="nav_item">
-              <a href="cattle.php" id="pastors" class="nav_link">Cattle</a>
-            </li>
-            <li class="nav_item">
-              <a href="../static/contact.html" class="nav_link">Contact</a>
-            </li>
-          </ul>
+      <div class='info-container'>
+        <img src='../../images/placeholder.svg' width='70px' alt='placeholder' oncontextmenu='return false' draggable="false"/>
+        <div class='info' style='padding-right: 30px;'>
+          <p style='float: none;'>P.O BOX 488<br>
+            MT. Vernon, MO 65712</p>
+        </div>
+        <img src='../../images/call.svg' width='70px' alt='placeholder' oncontextmenu='return false' draggable="false"/>
+        <div class='info'>
+          <p style='float: none'>417-737-BEEF (2333)</p>
         </div>
       </div>
     </div>
+
+    <!-- MOBILE  NAV-BAR -->
+    <nav class='mobile-nav'>
+      <ul class="nav_list">
+        <li class="nav_item">
+          <a href="index.php" id="linkEvent" class="nav_link">Home</a>
+        </li>
+        <li class="nav_item">
+          <a href="aboutUs.php" id="linkEvent" class="nav_link">About Us</a>
+        </li>
+        <li class="nav_item">
+          <a href="cattle.php" id="linkEvent" class="nav_link">Cattle</a>
+        </li>
+        <li class="nav_item">
+          <a href="contactUs.php" id="linkEvent" class="nav_link">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Navbar LINKS -->
+    <div class="nav-background">
+      <div class="nav-links">
+        <ul class="nav_list">
+          <li class="nav_item">
+            <a href="index.php" id="home" class="nav_link">Home</a>
+          </li>
+          <li class="nav_item">
+            <a href="aboutUs.php" id="aboutUs" class="nav_link">About Us</a>
+          </li>
+          <li class="nav_item">
+            <a href="cattle.php" id="cattle" class="nav_link">Cattle</a>
+          </li>
+          <li class="nav_item">
+            <a href="contactUs.php" id="contact" class="nav_link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      const homeLink = document.getElementById('home');
+      const navLinks = document.querySelectorAll('.nav_link');
+
+      homeLink.style.color = '#d1b480';
+
+      navLinks.forEach(link => {
+        link.addEventListener('mouseover', () => {
+          homeLink.style.color = 'white';
+          link.style.transition = 'color 0.4s ease';
+          link.style.color = '#d1b480';
+        });
+
+        link.addEventListener('mouseout', () => {
+          homeLink.style.color = '#d1b480';
+          link.style.transition = 'color 0.4s ease';
+          link.style.color = '';
+        });
+      });
+    </script>
+
 
     <!-- video -->
     <div class="myVideo">
       <div class="welcome">
         <h1 class="">Welcome to Our <br>Ranch</h1>
       </div>
-      <video class="farm-video" autoplay muted loop oncontextmenu="return false">
-        <source src="../../video/Ranch-Video.mp4" type="video/mp4" />
+      <video class="farm-video" autoplay muted playsinline loop oncontextmenu="return false">
+        <source src="../../video/Ranch-Stabilized-Video.mp4" type="video/mp4" />
       </video>
     </div>
-    
-    </header>
 
-    <main>
+  </header>
+
+  <main>
     <!-- BULLS CARDS -->
 
     <section class="carousel-section">
@@ -119,7 +215,7 @@
         <a href="cattle.php" class="reveal" style="font-weight: 400;color: white;">View all the bulls</a>
       </div>
 
-    <div class="carousel-container reveal">
+      <div class="carousel-container reveal">
         <div class="wrapper">
           <i class="fa-solid fa-chevron-left" id="left"></i>
           <ul class="carousel">
@@ -169,7 +265,14 @@
         </div>
       </div>
     </section>
-   
+
+    <!-- w3school -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="topArrow" viewBox="0 0 24 24" style='fill: white;'>
+        <path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z"></path>
+      </svg>
+    </button>
+
     <!-- ABOUT OUR CATTLE -->
     <section class="tsymbol">
       <div class="about-cattle reveal">
@@ -179,14 +282,14 @@
           </p>
         </div>
         <div class="image">
-          <img src="../../images/bull-nbg.svg" alt="bull" oncontextmenu='return false'>
+          <img src="../../images/bull-nbg.svg" alt="bull" oncontextmenu='return false' draggable="false">
         </div>
       </div>
     </section>
     <!-- MESSAGE -->
     <section class="reveal">
       <div class="img-container">
-        <img src="../../images/bullgrass.jpg" alt="bull" oncontextmenu='return false'>
+        <img src="../../images/bullgrass.jpg" alt="bull" oncontextmenu='return false' draggable="false">
         <div class="message">
           <h2>Grown on<br>
             Fescue Grass</h2>
@@ -197,7 +300,7 @@
     <section class="farmer-bkg">
       <div class="farmer-container reveal">
         <div class="image">
-          <img src="../../images/donna&ron.jpeg" alt="farmer-picture" oncontextmenu='return false'>
+          <img src="../../images/donna&ron.jpeg" alt="farmer-picture" oncontextmenu='return false' draggable="false">
         </div>
         <div class="text-wrapper">
           <h2>Ron & Donna <br>McNaughton</h2>
@@ -206,62 +309,102 @@
         </div>
       </div>
     </section>
- <!-- CONTACT US -->
+    <!-- CONTACT US -->
 
- <section class="reveal">
-  <div class="contact-container">
-    <div class="form-wrapper">
-      <h3>Contact <span style="color: #578b5a">Us!</span></h3>
+    <section class="reveal" id="action">
+      <div class="contact-container">
+        <div class="form-wrapper">
+          <h3>Contact <span style="color: #578b5a">Us!</span></h3>
 
-      <form action="sendEmail.php" method="post">
-        <p>
-          <label for="client"></label>
-          <input class="rounded-input" type="text" id="client" name="name" placeholder="Name" required />
-        </p>
-        <p>
-          <label for="email"></label>
-          <input class="rounded-input" type="email" id="email" name="email" placeholder="Email" required />
-        </p>
-        <p>
-          <label for="subject"></label>
-          <input class="rounded-input" type="text" id="subject" name="subject" placeholder="Bull prices, Questions?" required />
-        </p>
-        <p>
-          <label for="message"></label>
-          <textarea class="rounded-input" id="message" class="rounded_input" name="message" placeholder="I am interested about..." rows="7" cols="50"></textarea>
-        </p>
-        <p>
-          <input type="submit" class="submit-btn rounded-input" name="Submit" value="Submit" />
-        </p>
-      </form>
-    </div>
-    <div class="image-wrapper">
-      <img src="../../images/farm-pic-1.svg" alt="farm picture" oncontextmenu='return false'/>
-      <img src="../../images/farm-pic-2.svg" alt="farm picture" oncontextmenu='return false'/>
-    </div>
-  </div>
-</section>
+          <?php
+          if (isset($emailSent)) {
+            echo "
+                <div style='display:flex;justify-content:center;'>
+                  <div style='color:#578b5a;text-align:center'>
+                    <h4>{$emailSent}</h4>
+                  </div>
+                </div>";
+          }
+          ?>
+          <form action='index.php#action' method='post'>
+            <p>
+              <label for='client'></label>
+              <input class='rounded-input' type='text' id='client' name='name' placeholder='Name' required />
+            </p>
+            <p>
+              <label for='email'></label>
+              <input class='rounded-input' type='email' id='email' name='email' placeholder='Email' required />
+            </p>
+            <p>
+              <label for='subject'></label>
+              <input class='rounded-input' type='text' id='subject' name='subject' placeholder='Bull prices, Questions?' required />
+            </p>
+            <p>
+              <label for='message'></label>
+              <textarea class='rounded-input' id='message' class='rounded_input' name='message' placeholder='I am interested about...' rows='7' cols='50'></textarea>
+            </p>
+            <p>
+              <input type='submit' class='submit-btn rounded-input' name='Submit' value='Submit' />
+            </p>
+          </form>
+        </div>
+        <!-- IMAGES -->
+        <div class="image-wrapper">
+          <img src="../../images/farm-pic-1.svg" alt="farm picture" oncontextmenu='return false' draggable="false"/>
+          <img src="../../images/farm-pic-2.svg" alt="farm picture" oncontextmenu='return false' draggable="false"/>
+        </div>
+      </div>
+    </section>
 
     <!-- FOOTER -->
-      <footer>
-        <div class="foot-container">
-          <div class="foot-wrapper">
-            <div class="logo-wrapper">
-              <img src="../../images/Logo-White.svg" alt="Logo" oncontextmenu='return false'>
-              &copy;Copyright <em>Esteban Munoz</em>
-            </div>
-            <div class="text-wrapper">
-              <a href="cattle.php" style="color: var(--clr-third);
+    <footer>
+      <div class="foot-container">
+        <div class="foot-wrapper">
+          <div class="logo-wrapper">
+            <img src="../../images/Logo-White.svg" alt="Logo" oncontextmenu='return false'>
+            &copy;Copyright <em>Esteban Munoz</em>
+          </div>
+          <div class="text-wrapper">
+            <a href="cattle.php" style="color: var(--clr-third);
               padding-bottom: 20px;
               display: block;">
-                View all the bulls</a>
-               <p>417-737-BEEF (2333)</p> 
-               <p>SpringHillsRanch@gmail.com</p> 
-               <p>P.O. Box 488, MT. Vernon, MO 65712</p> 
-            </div>
-          </div>          
+              View all the bulls</a>
+            <p>417-737-BEEF (2333)</p>
+            <p>SpringHillsRanch@gmail.com</p>
+            <p>P.O. Box 488, MT. Vernon, MO 65712</p>
+          </div>
         </div>
-      </footer>
-      </main>
-  </body>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+      scrollFunction()
+    };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+
+    }
+  </script>
+</body>
+
 </html>

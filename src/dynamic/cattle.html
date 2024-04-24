@@ -202,7 +202,89 @@
     </div>
     <hr style='width:100%;text-align:left;margin: 50px 0px;height:2px;border-width:0;color:gray;background-color:gray;'>
 
-    
+        <!-- BULLS IN SALE -->
+        <div class='bull-product-1'>
+          <!-- eCommerce gallery -->
+          <div class='product-gallery'>
+  
+            <div class='main-img-ctn'>
+            <img src='../../images/bull-1.svg' class='bull-product' id='mainImg' width='600px' height='400px' alt='bull-product'>
+            </div>
+  
+            <!-- Small img container -->
+            <div class='small-img-ctn'>
+              <div class='small-img-col'>
+                <img src='$row[main_img]' class='small-img' alt='bull-product'>
+              </div>
+              <div class='small-img-col'>
+                <img src='$row[img_1]' class='small-img' alt='bull-product'>
+              </div>
+              <div class='small-img-col'>
+                <img src='$row[img_2]' class='small-img' alt='bull-product'>
+              </div>
+              <div class='small-img-col'>
+                <img src=$row[img_3] class='small-img' alt='bull-product'>
+              </div>
+            </div>
+  
+                <!-- SHOW UP-SMALL SCREEN -->
+            <div class='learn-smallBtn'>
+              <a href='https://zebu.redangus.org:8443/redspro/redspro/template/animalSearch%2CAnimalSearch.vm/action/animalSearch.AnimalSearchAction;jsessionid=0HGp1cIffKYlZ1QasfI_Ld9ATKgNc3a6-SSUshKT?eventSubmit_performAnimalSearch=exact&animalNumbers=4708639' target='_blank'>
+                <button>
+                  LEARN MORE
+                </button>
+              </a>
+            </div>
+          </div>
+  
+          <!-- INFO CONTAINER -->
+          <div class='info-ctn'>
+            <h2 class='bullName'>$row[bullName]</h2>
+            <h3 class='raaa'>RAAA#: $row[raaa]</h3>
+            <h4 class='dob'>DOB: $row[dob]</h4>
+  
+            <!-- FOR SALE -->
+            <div class='forSale-btn'>
+              <h5 class='phone-number'>FOR SALE</h5>
+              <p class='phone-icon'>$ Call for Pricing</p>
+              <lord-icon
+                  id='hidePhoneIcon'
+                  src='https://cdn.lordicon.com/rsvfayfn.json'
+                  trigger='hover'
+                  colors='primary:#ffffff'
+                  style='width:50px;height:50px; display: none'>
+                 </lord-icon>
+            </div>
+  
+            <!-- LEARN MORE -->
+            <div class='learnMore-btn'>
+              <a href='https://zebu.redangus.org:8443/redspro/redspro/template/animalSearch%2CAnimalSearch.vm/action/animalSearch.AnimalSearchAction;jsessionid=0HGp1cIffKYlZ1QasfI_Ld9ATKgNc3a6-SSUshKT?eventSubmit_performAnimalSearch=exact&animalNumbers=4708639' target='_blank'>
+                <button>
+                  LEARN MORE
+                </button>
+              </a>  
+            </div>
+          </div>
+  
+          <!-- SMALL SCREEN -->
+          <div class='info-small-screen'>
+            <h2 class='bullName'>$row[bullName]</h2>
+              <div class='info-wrap'>
+                <div class='text-wrap'>
+                  <h3 class='raaa'>
+                    RAAA#: $row[raaa]</h3>
+                  <h4 class='dob'>DOB: $row[dob]</h4>
+                </div>
+                <!-- FOR SALE -->
+                <div class='forSale-btn forSale-s-btn'>
+                  <h5>FOR SALE</h5>
+                  <p>$ Call for Pricing</p>
+                </div>
+            </div>
+          </div>
+      </div>
+      <hr style='width:100%;text-align:left;margin: 50px 0px;height:2px;border-width:0;color:gray;background-color:gray;'>
+  
       <!-- GALLERY SCRIPT -->
       <script>
         let mainImg = document.getElementById('mainImg');

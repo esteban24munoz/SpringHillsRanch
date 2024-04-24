@@ -132,6 +132,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         display: none;
         width: 100%;
     }
+
+    @media only screen and (max-width: 425px){
+        .img-preview {
+            width: auto;
+        }
+    }
+
 </style>
 
 <body>
@@ -140,7 +147,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <!-- Navbar -->
         <div class="nav-container">
             <div class="img-box">
-                <img src="../../../../../images/Logo-Black.svg" alt="Logo" />
+                <a href="panel.php">
+                    <img src="../../../../../images/Logo-Black.svg" alt="Logo" />
+                </a>
             </div>
         </div>
     </header>
@@ -198,7 +207,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class='row mb-3'>
                     <label class='col-sm-3 col-form-label' for='mainImg'>Main Image:</label>
                     <div class='col-sm-6'>
-                        <input class='form-control showImage' id='mainImg' type='file' name='mainImg' required>
+                        <input class='form-control showImage' id='mainImg' type='file' name='mainImg'>
 
                         <!-- PREVIEW IMAGE -->
                         <div class="img-preview col-sm-6" id="imgPreview">
@@ -212,7 +221,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class='row mb-3'>
                     <label class='col-sm-3 col-form-label' for='img1'>Image #1:</label>
                     <div class='col-sm-6'>
-                        <input class='form-control showImage' id='img1' type='file' name='img1' required>
+                        <input class='form-control showImage' id='img1' type='file' name='img1'>
                         <!-- PREVIEW IMAGE -->
                         <div class="img-preview col-sm-6" id="imgPreview">
                             <img src="" alt="Image Preview" class="img-preview__img">
@@ -225,7 +234,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class='row mb-3'>
                     <label class='col-sm-3 col-form-label' for='img2'>Image #2:</label>
                     <div class='col-sm-6'>
-                        <input class='form-control showImage' id='img2' type='file' name='img2' required>
+                        <input class='form-control showImage' id='img2' type='file' name='img2'>
                         <!-- PREVIEW IMAGE -->
                         <div class="img-preview col-sm-6" id="imgPreview">
                             <img src="" alt="Image Preview" class="img-preview__img">
@@ -238,7 +247,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class='row mb-3'>
                     <label class='col-sm-3 col-form-label' for='img3'>Image #3:</label>
                     <div class='col-sm-6'>
-                        <input class='form-control showImage' id='img3' type='file' name='img3' required>
+                        <input class='form-control showImage' id='img3' type='file' name='img3'>
                         <!-- PREVIEW IMAGE -->
                         <div class="img-preview col-sm-6" id="imgPreview">
                             <img src="" alt="Image Preview" class="img-preview__img">
